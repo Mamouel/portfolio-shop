@@ -1,0 +1,9 @@
+.wrapper {
+    margin: auto;
+    width: 80%;
+    max-width: 1400px;
+    @include mq(xxs) {
+      width: 95%;
+    }
+  }
+  

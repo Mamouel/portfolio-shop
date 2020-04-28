@@ -1,0 +1,40 @@
+@import "./colors";
+@import "./cards";
+@import "./variables";
+@import "./mixins";
+@import "./utils";
+@import "./fonts";
+@import "./buttons";
+
+html,
+body {
+	// scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-repeat: no-repeat;
+	font-size: 12px;
+	#app {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		background-color: #F4F6F8;
+
+		a {
+			font-weight: bold;
+			text-decoration: none;
+			color: $black;
+			@include transition(color 0.2s ease, transform 0.3s ease);
+			&:hover {
+				color: $primary;
+			}
+			&.router-link-exact-active {
+				color: $primary;
+				
+			}
+		}
+	}
+}

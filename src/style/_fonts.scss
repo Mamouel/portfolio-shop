@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+$sans-font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serif-font: "Source Serif Pro", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif !default;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $sans-font;
+}
+
+h1 {
+    @include font(36px, bold, 3.5rem);
+    margin: 0;
+}
+
+h2 {
+    @include font(50px, bold, 40px);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+h3 {
+    @include font(30px, bold, 2.3rem);
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    @include font(18px, bold, 2rem);
+    margin: 0;
+}
+
+h5 {
+    @include font(16px, bold, 1.5rem);
+    margin: 0;
+}
+
+h6 {
+    @include font(12px, bold, 1.2rem);
+    margin: 0;
+}
+
+p {
+    @include font(12px, normal, 12px);
+}
