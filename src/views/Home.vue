@@ -87,7 +87,7 @@ export default {
       background-color: $black;
     }
     &_grey {
-      background-color: $greyMed;
+      background-color: $greyLight;
     }
     &_grey-dark {
       background-color: $greyDark;

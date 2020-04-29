@@ -1,6 +1,6 @@
 <template>
   <div class="product-sumary wrapper">
-    <!-- <h2>{{ text.title[lang] }}</h2> -->
+    <h2>{{ text.title[lang] }}</h2>
     <div class="product-sumary__items">
       <router-link to="/lessons" class="product-sumary__items_item lessons">
         <div class="overlay"></div>
@@ -71,11 +71,13 @@ export default {
   text-align: center;
   color: $white;
   h2 {
-    margin-bottom: 105px;
-    text-align: left;
+    text-align: right;
+    margin-bottom: 85px;
+    color: $white;
+    padding-bottom: 10px;
     border-bottom: 4px solid $white;
     width: 50%;
-    padding-bottom: 10px;
+    margin-left: auto;
   }
   button {
     margin-top: 45px;
