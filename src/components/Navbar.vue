@@ -43,8 +43,8 @@
           @mouseover="displayLang = true"
           @mouseleave="displayLang = false"
         >
-          <div class="lang-dropdown__item" @click="changeLang('en')">En</div>
-          <div class="lang-dropdown__item" @click="changeLang('fr')">Fr</div>
+          <div class="lang-dropdown__item" @click="changeLang('en')">English</div>
+          <div class="lang-dropdown__item" @click="changeLang('fr')">Francais</div>
         </div>
       </div>
     </div>
@@ -129,6 +129,11 @@ export default {
     }
 
     &.open {
+      .menu-burger-btn {
+        .line {
+          background-color: $primaryDark;
+        }
+      }
     }
 
     &.closed {
@@ -152,26 +157,20 @@ export default {
     padding: 15px;
     cursor: pointer;
     margin-right: 30px;
+    @include transition(background-color 0.3s ease);
     @include mq(s) {
       padding: 10px;
     }
-
-    @include transition(background-color 0.3s ease);
-
-    &:hover {
-      background-color: $primary;
-
-      .menu-burger-btn {
-        .line {
-          background-color: $white;
-        }
-      }
-    }
-
     .menu-burger-btn {
       width: 30px;
       height: 30px;
       position: relative;
+
+      &.open {
+        .line {
+          background-color: $primaryDark;
+        }
+      }
 
       @include mq(s) {
         width: 25px;
@@ -206,18 +205,18 @@ export default {
       }
     }
 
-    .menu-burger-btn.open {
-      .top {
-        transform: rotate(45deg);
-        top: 40%;
-      }
+    // .menu-burger-btn.open {
+    //   .top {
+    //     transform: rotate(45deg);
+    //     top: 40%;
+    //   }
 
-      .middle,
-      .bottom {
-        transform: rotate(-45deg);
-        top: 40%;
-      }
-    }
+    //   .middle,
+    //   .bottom {
+    //     transform: rotate(-45deg);
+    //     top: 40%;
+    //   }
+    // }
   }
   .lang {
     position: relative;

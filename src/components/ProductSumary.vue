@@ -1,6 +1,6 @@
 <template>
   <div class="product-sumary wrapper">
-    <h2>{{ text.title[lang] }}</h2>
+    <!-- <h2>{{ text.title[lang] }}</h2> -->
     <div class="product-sumary__items">
       <router-link to="/lessons" class="product-sumary__items_item lessons">
         <div class="overlay"></div>
@@ -20,6 +20,7 @@
         <div class="overlay"></div>
         <div class="overlay-content">
           <p>{{ text.freestyle[lang] }}</p>
+          <p></p>
         </div>
         <h3>Freestyle</h3>
       </div>
@@ -82,12 +83,12 @@ export default {
   &__items {
     display: flex;
     justify-content: center;
-    margin-left: -15px;
+    margin-left: -5px;
     &_item {
       position: relative;
-      width: calc(100% / 3 - 15px);
-      margin-left: 15px;
-      height: 500px;
+      width: calc(100% / 3 - 5px);
+      margin-left: 5px;
+      height: 600px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -108,13 +109,19 @@ export default {
 
       &:hover {
         .overlay {
-          height: 500px;
+          height: 600px;
           opacity: 0.6;
         }
 
         .overlay-content {
           opacity: 1;
           visibility: visible;
+        }
+
+        h3 {
+          font-size: 26px;
+          color: $white;
+          background-color: $primary;
         }
       }
 
@@ -129,18 +136,27 @@ export default {
         z-index: 2;
         padding: 20px;
         box-sizing: border-box;
-        @include transition(height 0.3s ease);
+        @include transition(
+          height 0.3s ease,
+          color 0.3s ease,
+          background-color 0.3s ease
+        );
       }
 
       h3 {
-        // width: 60%;
-        background-color: $transparentColor;
-        color: $white;
+        width: 60%;
+        background-color: $white;
+        color: $black;
         padding: 5px 0;
         z-index: 12;
         position: absolute;
-        top: -25px;
-        left: 0px;
+        // top: -15px;
+        top: 20px;
+        @include transition(font-size 0.3s ease);
+        left: -20px;
+        // background-image: url("~@/assets/title-bg.jpg");
+        // @include background;
+        // transform: rotate(-15deg);
       }
 
       .overlay-content {

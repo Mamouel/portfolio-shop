@@ -9,18 +9,18 @@ $serif-font: "Source Serif Pro", Garamond, Baskerville, "Baskerville Old Face", 
 }
 
 h1 {
-    @include font(36px, bold, 3.5rem);
+    @include font(36px, bold, 40px);
     margin: 0;
 }
 
 h2 {
-    @include font(50px, bold, 40px);
+    @include font(50px, 900, 40px);
     margin: 0;
     text-transform: uppercase;
 }
 
 h3 {
-    @include font(30px, bold, 2.3rem);
+    @include font(24px, 900, 30px);
     margin: 0;
     margin-bottom: 1rem;
 }
@@ -41,5 +41,6 @@ h6 {
 }
 
 p {
-    @include font(12px, normal, 12px);
+    @include font(24px, 400, 30px);
+
 }

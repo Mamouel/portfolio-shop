@@ -36,7 +36,7 @@ export default {
   // padding-top: $navbarHeight;
   width: 100%;
   @include background;
-  background-color: $greyMed;
+  background-color: $white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@ export default {
     height: 800px;
   }
   &.page {
-    height: 400px;
+    height: 500px;
   }
   &__wrapper {
     padding: 50px 0;
@@ -61,6 +61,7 @@ export default {
     }
     &.page {
       @include font(80px, 900, 90px);
+      padding-bottom: 0px;
     }
   }
   &__subtitle {
