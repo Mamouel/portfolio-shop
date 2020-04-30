@@ -1,14 +1,16 @@
 <template>
   <div class="teacher wrapper">
-    <h2>Your teacher</h2>
-    <div class="teacher__item">
-      <div class="teacher__item_image teacher-image"></div>
-      <div class="teacher__item_text">
+    <h2 data-aos="zoom-in">Your teacher</h2>
+    <div class="teacher__item" data-aos="fade-right">
+      <div class="teacher__item_image teacher__item_big teacher-image"></div>
+      <div class="teacher__item_text teacher__item_big">
         <p v-for="(item, index) in text.teacher[lang]" :key="index">{{ item }}</p>
       </div>
     </div>
-    <div class="teacher__item">
-      <div class="teacher__item_text"></div>
+    <div class="teacher__item" data-aos="fade-left">
+      <div class="teacher__item_text">
+        <p v-for="(item, index) in text.aisi[lang]" :key="index">{{ item }}</p>
+      </div>
       <div class="teacher__item_image certif-image"></div>
     </div>
   </div>
@@ -26,11 +28,20 @@ export default {
         teacher: {
           en: [
             "Familiar with the area of the 4 Valleys and the surroundings, I am pleased to support children and adults whatever their level and requirements, on or off the slopes, and this, with maximum safety!",
-            "Do not hesitate to contact me if you want to evolve in such practices or simply discover them!",
+            "Do not hesitate to contact me if you want to evolve in such practices or simply discover them!"
           ],
           fr: [
             "Connaissant parfaitement le domaine des 4 vallées et ses environs, je me fais un plaisir d’accompagner petits et grands quel que soit leur niveau et leurs exigences, sur ou en dehors des pistes et ceci avec une sécurité optimale !",
             "Je vous emmène volontiers à la découverte des innombrables recoins de nature offerts par cette région au cours de votre séjour."
+          ]
+        },
+        aisi: {
+          en: [
+            "Familiar with the area of the 4 Valleys and the surroundings, I am pleased to support children and adults whatever their level and requirements, on or off the slopes, and this, with maximum safety!",
+            "Do not hesitate to contact me if you want to evolve in such practices or simply discover them!"
+          ],
+          fr: [
+            "Tous les Moniteurs membres de l’AISI sont titulaires du Brevet Fédéral de Professeur de Sports de Neige délivré par Swiss Snowsports et sont assurés dans l’exercice de leur activité (et leurs clients aussi)."
           ]
         }
       }
@@ -38,7 +49,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "@/style/index";
 .teacher {
@@ -48,8 +58,10 @@ export default {
     color: $white;
     padding-bottom: 10px;
     border-bottom: 4px solid $white;
-    width: 40%;
-    margin-left: auto;
+    // width: 40%;
+    @include mq(s) {
+      margin-bottom: 40px;
+    }
   }
   &__item {
     display: flex;
@@ -57,26 +69,37 @@ export default {
     align-items: center;
     margin-top: 15px;
     color: $black;
+    @include mq(m) {
+      flex-direction: column;
+    }
     &_image {
-      height: 400px;
+      height: 345px;
       width: 40%;
       @include box-shadow;
-
       @include background;
       background-color: $greyMed;
-
       &.teacher-image {
-        background-image: url("~@/assets/nicoteacher.jpg");
+        background-image: url("~@/assets/teacher.jpg");
         margin-right: 15px;
+      width: 60%;
+        @include mq(m) {
+          width: 100%;
+          margin-right: 0px;
+        }
       }
       &.certif-image {
-        background-image: url("~@/assets/aisi.png");
+        background-image: url("~@/assets/aisi-logo.png");
         margin-left: 15px;
         background-size: contain;
+        background-color: $white;
+        @include mq(m) {
+          width: 100%;
+          margin-left: 0px;
+        }
       }
     }
     &_text {
-      height: 400px;
+      height: 345px;
       overflow: hidden;
       width: 60%;
       box-sizing: border-box;
@@ -86,9 +109,15 @@ export default {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
+      @include mq(m) {
+        width: 100%;
+      }
       p {
         margin: 0;
       }
+    }
+    &_big {
+      height: 400px;
     }
   }
 }

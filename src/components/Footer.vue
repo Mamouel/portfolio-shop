@@ -6,15 +6,10 @@
       </div>
       <div class="footer__section">
         <h4>Utils</h4>
-
-
       </div>
       <div class="footer__section">
         <h4>Contact</h4>
-
-
       </div>
-
     </div>
   </div>
 </template>
@@ -41,9 +36,8 @@ export default {
     h4 {
       text-align: center;
       color: $white;
-      padding: 50px;
+      box-sizing: border-box;
     }
-    
   }
 }
 </style>

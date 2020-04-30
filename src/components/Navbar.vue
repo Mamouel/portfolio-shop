@@ -1,50 +1,74 @@
 <template>
   <div class="navbar" :class="bodyScroll ? 'navbar_scrolled' : ''">
     <div class="navbar__ctn wrapper">
-      <img src="@/assets/logo-v2.png" alt />
-      <div
-        class="navbar__links"
-        @mouseover="menuOpen = true"
-        @mouseleave="menuOpen = false"
-        :class="menuOpen ? 'open' : 'closed'"
-      >
-        <router-link
-          @click.native="menuOpen = !menuOpen"
-          class="button side-menu-btn"
-          to="/"
-        >Lessons</router-link>
-        <router-link
-          @click.native="menuOpen = !menuOpen"
-          class="button side-menu-btn"
-          to="/"
-        >Teacher</router-link>
-        <router-link
-          @click.native="menuOpen = !menuOpen"
-          class="button side-menu-btn"
-          to="/"
-        >Packagess</router-link>
-      </div>
-      <div class="menu-burger" @mouseover="menuOpen = true" @mouseleave="menuOpen = false">
-        <div class="menu-burger-btn" :class="menuOpen ? 'open' : 'closed'">
-          <span class="line top"></span>
-          <span class="line middle"></span>
-          <span class="line bottom"></span>
-        </div>
-      </div>
-      <div class="lang">
+      <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
+      <div class="navbar__right">
         <div
-          class="lang-btn"
-          @mouseover="displayLang = true"
-          @mouseleave="displayLang = false"
-        >{{ lang }}</div>
-        <div
-          class="lang-dropdown"
-          :class="displayLang ? 'open' : 'closed'"
-          @mouseover="displayLang = true"
-          @mouseleave="displayLang = false"
+          class="navbar__links"
+          @mouseover="menuOpen = true"
+          @mouseleave="menuOpen = false"
+          :class="menuOpen ? 'open' : 'closed'"
         >
-          <div class="lang-dropdown__item" @click="changeLang('en')">English</div>
-          <div class="lang-dropdown__item" @click="changeLang('fr')">Francais</div>
+          <router-link
+            @click.native="menuOpen = !menuOpen"
+            class="button side-menu-btn"
+            to="/"
+          >Lessons</router-link>
+          <router-link
+            @click.native="menuOpen = !menuOpen"
+            class="button side-menu-btn"
+            to="/"
+          >Teacher</router-link>
+          <router-link
+            @click.native="menuOpen = !menuOpen"
+            class="button side-menu-btn"
+            to="/"
+          >Packagess</router-link>
+        </div>
+        <div
+          class="navbar__links navbar__links_mobile"
+          @mouseover="menuOpen = true"
+          @mouseleave="menuOpen = false"
+          :class="menuOpen ? 'open' : 'closed'"
+        >
+          <router-link
+            @click.native="menuOpen = !menuOpen"
+            class="button side-menu-btn"
+            to="/"
+          >Lessons</router-link>
+          <router-link
+            @click.native="menuOpen = !menuOpen"
+            class="button side-menu-btn"
+            to="/"
+          >Teacher</router-link>
+          <router-link
+            @click.native="menuOpen = !menuOpen"
+            class="button side-menu-btn"
+            to="/"
+          >Packagess</router-link>
+        </div>
+        <div class="menu-burger" @mouseover="menuOpen = true" @mouseleave="menuOpen = false">
+          <div class="menu-burger-btn" :class="menuOpen ? 'open' : 'closed'">
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </div>
+        </div>
+        <div class="lang">
+          <div
+            class="lang-btn"
+            @mouseover="displayLang = true"
+            @mouseleave="displayLang = false"
+          >{{ lang }}</div>
+          <div
+            class="lang-dropdown"
+            :class="displayLang ? 'open' : 'closed'"
+            @mouseover="displayLang = true"
+            @mouseleave="displayLang = false"
+          >
+            <div class="lang-dropdown__item" @click="changeLang('en')">English</div>
+            <div class="lang-dropdown__item" @click="changeLang('fr')">Francais</div>
+          </div>
         </div>
       </div>
     </div>
@@ -93,14 +117,24 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 100;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   @include transition(background-color 0.3s ease);
+  @include mq(s) {
+    height: $navbarHeightMobile;
+  }
   &__ctn {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     img {
-      height: 80px;
-      margin-right: auto;
+      height: 50px;
       padding: 20px 0;
+      @include mq(s) {
+        padding: 0px;
+      }
     }
   }
 
@@ -112,6 +146,11 @@ export default {
     );
   }
 
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
   &__links {
     z-index: 100;
     display: flex;
@@ -119,10 +158,15 @@ export default {
     height: $navbarHeight;
     background-color: $transparentColor;
     @include transition(transform 0.3s ease);
-    @include mq(xxs) {
-      width: 100vw;
+    @include mq(s) {
+      display: none;
     }
-
+    @include mq(xs) {
+      display: none;
+    }
+    @include mq(ph) {
+      display: none;
+    }
     a {
       margin: 10px;
       @include font(16px, normal, 20px);
@@ -138,13 +182,41 @@ export default {
 
     &.closed {
       transform: translateY(-100%);
+      @include mq(s) {
+        transform: translateX(100%);
+      }
     }
 
-    &_theme {
-      margin-top: auto;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
+    &_mobile {
+      display: none;
+      position: absolute;
+      width: 30vw;
+      flex-direction: column;
+      background-color: $white;
+      height: 100vh;
+      top: 0;
+      right: 0;
+      z-index: 1000;
+      padding-top: 75px;
+      @include mq(s) {
+        display: flex;
+      }
+      @include mq(xxs) {
+        width: 100vw;
+      }
+      &.open {
+        .menu-burger-btn {
+          .line {
+            background-color: $primaryDark;
+          }
+        }
+      }
+
+      &.closed {
+        @include mq(s) {
+          transform: translateX(100%);
+        }
+      }
     }
   }
 
@@ -160,6 +232,9 @@ export default {
     @include transition(background-color 0.3s ease);
     @include mq(s) {
       padding: 10px;
+    }
+    @include mq(xs) {
+      margin-right: 0;
     }
     .menu-burger-btn {
       width: 30px;
@@ -221,15 +296,16 @@ export default {
   .lang {
     position: relative;
     height: 60px;
-    width: 60px;
+    // width: 60px;
+      font-family: $heading-font;
+
     .lang-btn {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: $transparentColor;
       @include font(16px, bold, 20px);
-      width: 60px;
-      height: 60px;
+      padding: 20px;
       text-transform: capitalize;
       cursor: pointer;
     }
@@ -246,11 +322,14 @@ export default {
       }
 
       &__item {
-        width: 50px;
-        padding: 5px;
+        // width: 50px;
+        padding: 10px 15px;
         cursor: pointer;
+        @include transition(color 0.3s ease, background-color 0.3s ease);
+
         &:hover {
-          background-color: $primaryLight;
+          background-color: $primary;
+          color: $white;
         }
       }
     }

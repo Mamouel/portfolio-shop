@@ -84,7 +84,7 @@
 	line-height: $line-height;
 }
 
-@mixin background($background-size: cover, $background-color: $greyMed, $background-position: center, $background-repeat: no-repeat) {
+@mixin background($background-size: cover, $background-color: $transparentColor, $background-position: center, $background-repeat: no-repeat) {
 	background-size: $background-size;
 	background-color: $background-color;
 	background-position: $background-position;
@@ -94,7 +94,7 @@
 //MEDIA QUERIES
 
 @mixin mq($size) {
-	@if $size==phone {
+	@if $size==ph {
 		@media (max-width: 320px) {
 			@content;
 		}

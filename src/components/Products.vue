@@ -1,28 +1,49 @@
 <template>
-  <div class="product-sumary wrapper">
-    <h2>{{ text.title[lang] }}</h2>
-    <div class="product-sumary__items">
-      <router-link to="/lessons" class="product-sumary__items_item lessons">
+  <div class="product wrapper">
+    <div class="product__items" data-aos="fade">
+      <div class="product__items_item">
+        <h2>Pour tous les âges et tous les niveaux!</h2>
+        <!-- <p>A partir de 4 ans, pour les débutants aux confirmés</p>
+        <p>Freeride sécurisé sur Verbier et ses alentours</p>
+        <p>Sessions Snowpark</p>-->
+      </div>
+      <router-link to="/lessons" class="product__items_item lessons">
         <div class="overlay"></div>
         <div class="overlay-content">
           <p>{{ text.lessons[lang] }}</p>
         </div>
         <h3>Ski &amp; Snow</h3>
       </router-link>
-      <div class="product-sumary__items_item freeride">
+      <div class="product__items_item freeride">
         <div class="overlay"></div>
         <div class="overlay-content">
           <p>{{ text.freeride[lang] }}</p>
         </div>
         <h3>Freeride</h3>
       </div>
-      <div class="product-sumary__items_item freestyle">
+      <div class="product__items_item freestyle">
         <div class="overlay"></div>
         <div class="overlay-content">
           <p>{{ text.freestyle[lang] }}</p>
           <p></p>
         </div>
         <h3>Freestyle</h3>
+      </div>
+      <div class="product__items_item family">
+        <div class="overlay"></div>
+        <div class="overlay-content">
+          <p>{{ text.family[lang] }}</p>
+          <p></p>
+        </div>
+        <h3>Family Trip</h3>
+      </div>
+      <div class="product__items_item team">
+        <div class="overlay"></div>
+        <div class="overlay-content">
+          <p>{{ text.freestyle[lang] }}</p>
+          <p></p>
+        </div>
+        <h3>Team Building</h3>
       </div>
     </div>
     <button class="btn btn__primary">Book</button>
@@ -31,7 +52,7 @@
 
 <script>
 export default {
-  name: "ProductSumary",
+  name: "Product",
   props: {
     lang: String
   },
@@ -58,6 +79,11 @@ export default {
           en: "Freestyle initiation for experimented riders",
           fr:
             "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+        },
+        family: {
+          en: "Freestyle initiation for experimented riders",
+          fr:
+            "Initiation freestyle pour les riders de niveau intermédiaire à expert."
         }
       }
     };
@@ -67,17 +93,16 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/style/index";
-.product-sumary {
+.product {
   text-align: center;
   color: $white;
   h2 {
-    text-align: right;
+    text-align: left;
     margin-bottom: 85px;
     color: $white;
-    padding-bottom: 10px;
-    border-bottom: 4px solid $white;
+    padding: 40px;
     @include mq(s) {
-      margin-bottom: 40px;
+      padding: 20px;
     }
   }
   button {
@@ -86,30 +111,24 @@ export default {
   &__items {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin-left: -5px;
-    @include mq(m) {
-      flex-direction: column;
-    }
     &_item {
       position: relative;
       width: calc(100% / 3 - 5px);
+      //   min-width: 300px;
       margin-left: 5px;
-      height: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin-top: 5px;
+      height: 400px;
       cursor: pointer;
       @include background;
-      @include mq(l) {
-        height: 500px;
-      }
-      @include mq(m) {
+      background-color: $black;
+
+      @include mq(xl) {
         width: calc(100% / 2 - 5px);
       }
       @include mq(s) {
-        margin: 5px;
-        height: 400px;
-        width: calc(100% - 10px);
+        width: calc(100%);
       }
 
       &.lessons {
@@ -117,23 +136,25 @@ export default {
       }
 
       &.freeride {
-        background-image: url("~@/assets/lesson2.jpg");
+        background-image: url("~@/assets/freeride6.jpg");
       }
 
       &.freestyle {
         background-image: url("~@/assets/freestyle2.jpg");
       }
 
+      &.family {
+        background-image: url("~@/assets/group3.jpg");
+      }
+
+      &.team {
+        background-image: url("~@/assets/group2.jpg");
+      }
+
       &:hover {
         .overlay {
-          height: 600px;
+          height: 400px;
           opacity: 0.6;
-          @include mq(l) {
-            height: 500px;
-          }
-          @include mq(s) {
-            height: 400px;
-          }
         }
 
         .overlay-content {
@@ -144,7 +165,7 @@ export default {
         h3 {
           font-size: 26px;
           color: $white;
-          background-color: $primary;
+          background-color: $primaryDark;
         }
       }
 
@@ -164,10 +185,6 @@ export default {
           color 0.3s ease,
           background-color 0.3s ease
         );
-        @include mq(s) {
-          height: 400px;
-          opacity: 0.6;
-        }
       }
 
       h3 {
@@ -192,10 +209,6 @@ export default {
         visibility: hidden;
         @include transition(visibility 0.5s ease, opacity 0.5s ease);
         padding: 30px;
-        @include mq(s) {
-          visibility: visible;
-          opacity: 0.6;
-        }
         p {
           @include font(18px, normal, 24px);
         }

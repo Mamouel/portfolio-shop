@@ -15,6 +15,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background-repeat: no-repeat;
 	font-size: 12px;
+	width: 100%;
+	font-family: $body-font;
+	
 	#app {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -22,6 +25,7 @@ body {
 		padding: 0;
 		margin: 0;
 		background-color: $white;
+		width: 100%;
 
 		a {
 			font-weight: bold;
@@ -33,7 +37,6 @@ body {
 			}
 			&.router-link-exact-active {
 				color: $primary;
-				
 			}
 		}
 	}

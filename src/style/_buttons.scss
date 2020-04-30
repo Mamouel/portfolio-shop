@@ -5,6 +5,7 @@
     cursor: pointer;
     box-sizing: border-box;
     @include box-shadow;
+    
     &:hover {
         color: $primary;
     }

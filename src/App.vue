@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar :lang="lang" @newLang="setLang" />
-    <router-view :lang="lang" />
+    <router-view :lang="lang" style="width: 100%" />
     <Footer :lang="lang" />
   </div>
 </template>

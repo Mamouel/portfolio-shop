@@ -1,6 +1,6 @@
 <template>
   <div class="partners wrapper">
-    <div class="partners__ctn">
+    <div class="partners__ctn" data-aos="slide-right">
       <img src="@/assets/logo-faction.jpg" alt />
       <img src="@/assets/logo-isia.png" alt />
       <img src="@/assets/logo-verbier.jpg" alt />

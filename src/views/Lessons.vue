@@ -1,6 +1,7 @@
 <template>
   <div class="lessons">
     <Banner :lang="lang" type="page" title="Cours de groupes et individuels" />
+    
   </div>
 </template>
 
@@ -21,6 +22,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/index";
 .lessons {
-  
+
 }
 </style>
