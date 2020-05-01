@@ -1,9 +1,9 @@
 <template>
   <div class="partners wrapper">
-    <div class="partners__ctn" data-aos="slide-right">
+    <div class="partners__ctn" data-aos="slide-right" data-aos-once="true">
       <img src="@/assets/logo-faction.jpg" alt />
       <img src="@/assets/logo-isia.png" alt />
-      <img src="@/assets/logo-verbier.jpg" alt />
+      <img src="@/assets/verbier-logo.png" alt />
       <img src="@/assets/logo-membre-swissno.png" alt />
     </div>
   </div>
@@ -22,8 +22,9 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: $white;
     img {
-      height: 90px;
+      height: 80px;
       margin: 20px;
     }
   }

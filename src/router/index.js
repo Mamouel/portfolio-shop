@@ -9,24 +9,6 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  },
-  {
-    path: "/lessons",
-    name: "Lessons",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "lessons" */ "../views/Lessons.vue")
   }
 ];
 
@@ -34,8 +16,16 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior() {
-    return { x: 0, y: 0 };
+  scrollBehavior(to, from, savedPosition) {
+    console.log(to, from, savedPosition);
+    if (to.hash) {
+      return window.scrollTo({
+        top: document.querySelector(to.hash).offsetTop,
+        behavior: "smooth"
+      });
+    } else {
+      return { x: 0, y: 0 };
+    }
   }
 });
 

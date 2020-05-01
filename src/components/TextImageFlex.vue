@@ -1,14 +1,20 @@
 <template>
   <div class="text-img-flex wrapper">
-    <div class="text-img-flex__item" :class="type" data-aos="slide-right">
-      <h2>Un domaine hallucinant</h2>
+    <div class="text-img-flex__item" :class="type" data-aos="slide-up" data-aos-once="true">
+      <h2>{{ text.title[lang] }}</h2>
       <p>La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux</p>
       <p>Freeride sécurisé sur Verbier et ses alentours</p>
       <p>Snowpark</p>
-      <p data-aos="fade">Evenements en station</p>
-      <button class="btn btn__primary">En savoir plus</button>
+      <p>Evenements en station</p>
+      <button class="btn btn__primary">{{ text.button[lang] }}</button>
     </div>
-    <div class="text-img-flex__item text-img-flex__item_image" :class="type + '-image'" data-aos="slide-left"></div>
+    <div class="text-img-flex__item" :class="type + '-shadow'"></div>
+    <div
+      class="text-img-flex__item text-img-flex__item_image"
+      :class="type + '-image'"
+      data-aos="slide-up"
+      data-aos-once="true"
+    ></div>
   </div>
 </template>
 
@@ -16,7 +22,40 @@
 export default {
   name: "TextImageFlex",
   props: {
-    type: String
+    type: String,
+    lang: String
+  },
+  data() {
+    return {
+      text: {
+        title: {
+          en: "Unique playground",
+          fr: "Un domaine spectaculaire"
+        },
+        parag: [
+          {
+            en: "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux",
+            fr: ""
+          },
+          {
+            en: "",
+            fr: "Freeride sécurisé sur Verbier et ses alentours"
+          },
+          {
+            en: "Snowpark",
+            fr: "Snowpark"
+          },
+          {
+            en: "Evenements en station",
+            fr: "Evenements en station"
+          }
+        ],
+        button: {
+          en: "Learn more",
+          fr: "En savoir plus"
+        }
+      }
+    };
   }
 };
 </script>
@@ -42,6 +81,7 @@ export default {
     h2 {
       margin-bottom: 30px;
       @include font(60px, 900, 50px);
+      @include font(80px, 900, 70px);
       @include mq(m) {
         @include font(20px, 900, 20px);
       }
@@ -69,12 +109,49 @@ export default {
         // padding-right: 100px;
       }
     }
+    &.first-shadow {
+      position: absolute;
+      background-color: $primaryDark;
+      opacity: 0.4;
+      right: 100px;
+      z-index: 1;
+      width: 70%;
+      margin-top: 50px;
+    }
     &.first-image {
-      // position: absolute;
       background-image: url("~@/assets/banner4.jpg");
       right: 0;
       width: 100%;
       margin-left: -200px;
+    }
+    &.second {
+      width: 65%;
+      color: $greyLight;
+      padding: 50px;
+      // padding-top: 0px;
+      margin-top: 50px;
+      margin-bottom: -50px;
+      z-index: 10;
+      background-color: $transparentColor;
+      p {
+        padding-right: 200px;
+      }
+    }
+    &.second-shadow {
+      position: absolute;
+      background-color: $primaryDark;
+      opacity: 0.4;
+      right: 100px;
+      z-index: 1;
+      width: 70%;
+      margin-top: 50px;
+    }
+    &.second-image {
+      position: absolute;
+      z-index: 2;
+      background-image: url("~@/assets/banner4.jpg");
+      right: 0;
+      width: 60%;
     }
   }
 }

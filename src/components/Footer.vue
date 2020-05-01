@@ -1,14 +1,15 @@
 <template>
   <div class="footer">
     <div class="footer__wrapper wrapper">
-      <div class="footer__section">
-        <h4>Social Links</h4>
+      <!-- <div class="footer__section">
+        <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
+      </div> -->
+      <div class="footer__mention">
+        © 2020 - Ride and Smile Snowsports
       </div>
-      <div class="footer__section">
-        <h4>Utils</h4>
-      </div>
-      <div class="footer__section">
-        <h4>Contact</h4>
+      <div class="footer__mention">
+        Conception et réalisation
+        <a href="mailto:e-dodier@hotmail.fr">Mamouel</a>
       </div>
     </div>
   </div>
@@ -23,21 +24,21 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/index";
 .footer {
-  background-color: $black;
-  height: 200px;
+  background-color: $greyLight;
   &__wrapper {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  &__section {
-    flex: 1;
-    height: 200px;
-    h4 {
-      text-align: center;
-      color: $white;
-      box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      height: 50px;
+    padding: 20px 0;
+
     }
+  }
+  &__mention {
+    @include font(10px, 100, 12px);
+    padding: 20px 0;
+    color: $black;
   }
 }
 </style>

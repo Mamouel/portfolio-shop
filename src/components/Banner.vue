@@ -5,10 +5,10 @@
         data-aos="fade-down"
         data-aos-offset="50"
         data-aos-delay="50"
-        data-aos-duration="1000"
+        data-aos-duration="2000"
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-once="true"
         data-aos-anchor-placement="top-center"
         class="banner__title"
         :class="type"
@@ -74,7 +74,7 @@ export default {
     height: 500px;
   }
   &__wrapper {
-    padding: 50px 0;
+    // padding: 50px 0;
     box-sizing: border-box;
     @include mq(s) {
       text-align: center;
@@ -95,6 +95,9 @@ export default {
     }
     &.home {
       @include font(120px, 900, 90px);
+      @include mq(xxxl) {
+        @include font(200px, 900, 150px);
+      }
       @include mq(l) {
         @include font(80px, 900, 60px);
       }

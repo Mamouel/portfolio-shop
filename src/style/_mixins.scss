@@ -95,7 +95,7 @@
 
 @mixin mq($size) {
 	@if $size==ph {
-		@media (max-width: 320px) {
+		@media (max-width: 400px) {
 			@content;
 		}
 	}
@@ -135,13 +135,13 @@
 		}
 	}
 	@else if $size==xxl {
-		@media (max-width: 1440px) {
+		@media (max-width: 2000px) {
 			@content;
 		}
 	}
 
 	@else if $size==xxxl {
-		@media (min-width: 1441px) {
+		@media (min-width: 2001px) {
 			@content;
 		}
 	}

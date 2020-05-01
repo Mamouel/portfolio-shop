@@ -1,19 +1,19 @@
 <template>
   <div class="product wrapper">
-    <div class="product__items" data-aos="fade">
+    <div class="product__items" data-aos="fade" data-aos-once="true">
       <div class="product__items_item">
-        <h2>Pour tous les âges et tous les niveaux!</h2>
+        <h2>Dès 4 ans, pour tous les niveaux</h2>
         <!-- <p>A partir de 4 ans, pour les débutants aux confirmés</p>
         <p>Freeride sécurisé sur Verbier et ses alentours</p>
         <p>Sessions Snowpark</p>-->
       </div>
-      <router-link to="/lessons" class="product__items_item lessons">
+      <div class="product__items_item lessons">
         <div class="overlay"></div>
         <div class="overlay-content">
           <p>{{ text.lessons[lang] }}</p>
         </div>
         <h3>Ski &amp; Snow</h3>
-      </router-link>
+      </div>
       <div class="product__items_item freeride">
         <div class="overlay"></div>
         <div class="overlay-content">
@@ -96,15 +96,15 @@ export default {
 .product {
   text-align: center;
   color: $white;
-  h2 {
-    text-align: left;
-    margin-bottom: 85px;
-    color: $white;
-    padding: 40px;
-    @include mq(s) {
-      padding: 20px;
-    }
-  }
+  // h2 {
+  //   text-align: left;
+  //   margin-bottom: 85px;
+  //   color: $white;
+  //   padding: 40px;
+  //   @include mq(s) {
+  //     padding: 20px;
+  //   }
+  // }
   button {
     margin-top: 45px;
   }
@@ -119,18 +119,39 @@ export default {
       //   min-width: 300px;
       margin-left: 5px;
       margin-top: 5px;
-      height: 400px;
-      cursor: pointer;
+      height: 600px;
       @include background;
       background-color: $black;
-
       @include mq(xl) {
         width: calc(100% / 2 - 5px);
       }
       @include mq(s) {
-        width: calc(100%);
+        width: 100%;
+        height: 400px;
+        .overlay {
+          height: 400px !important;
+          opacity: 0.6 !important;
+        }
+        .overlay-content {
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
       }
-
+      h2 {
+        text-align: left;
+        color: $white;
+        z-index: 10;
+        padding: 40px;
+        @include font(80px, 900, 70px);
+        @include mq(m) {
+          @include font(60px, 900, 50px);
+          margin-top: 100px;
+        }
+        @include mq(s) {
+          padding: 20px;
+          @include font(40px, 900, 40px);
+        }
+      }
       &.lessons {
         background-image: url("~@/assets/lesson.jpg");
       }
@@ -153,7 +174,7 @@ export default {
 
       &:hover {
         .overlay {
-          height: 400px;
+          height: 600px;
           opacity: 0.6;
         }
 

@@ -7,36 +7,43 @@
       titleOpt="Snowsports"
       :subtitle="text.subtitle[lang]"
     />
-    <div class="home-section home-section_black">
+    <!-- <div id="teacher" class="home-section home-section_black">
       <Teacher :lang="lang" />
+    </div>-->
+    <div id="teacher2" class="home-section home-section_grey">
+      <Teacher2 :lang="lang" />
     </div>
-
-    <div class="home-section home-section_small-padding home-section_grey">
+    <!-- <div id="location" class="home-section home-section_small-padding home-section_grey">
       <TextImageFlex :lang="lang" type="first" />
+    </div>-->
+    <div id="location" class="home-section home-section_black">
+      <TextImageFlex :lang="lang" type="second" />
     </div>
-    <!-- <div class="home-section home-section_grey">
-      <TextImageFlex :lang="lang" type="first" />
-    </div> -->
-    <div class="home-section home-section_white">
+    <div id="products" class="home-section home-section_black">
       <Products :lang="lang" />
     </div>
-    <div class="home-section home-section_black">
+    <!-- <div id="products2" class="home-section home-section_primary-dark">
       <ProductSumary :lang="lang" />
+    </div>-->
+    <div class="home-section home-section_grey home-section_no-padding">
+      <div class="contact">
+        <p class="contact__bg">Get in touch</p>
+      </div>
     </div>
-    <div class="home-section home-section_small-padding home-section_white">
+    <div id="partners" class="home-section home-section_small-padding home-section_white">
       <Partners :lang="lang" />
     </div>
   </div>
 </template>
 
-
 <script>
 import Banner from "@/components/Banner.vue";
-import Teacher from "@/components/Teacher.vue";
+// import Teacher from "@/components/Teacher.vue";
+import Teacher2 from "@/components/Teacher2.vue";
 import Partners from "@/components/Partners.vue";
 import Products from "@/components/Products.vue";
 import TextImageFlex from "@/components/TextImageFlex.vue";
-import ProductSumary from "@/components/ProductSumary.vue";
+// import ProductSumary from "@/components/ProductSumary.vue";
 
 export default {
   name: "Home",
@@ -55,8 +62,9 @@ export default {
   },
   components: {
     Banner,
-    ProductSumary,
-    Teacher,
+    // ProductSumary,
+    // Teacher,
+    Teacher2,
     Partners,
     Products,
     TextImageFlex
@@ -83,7 +91,7 @@ export default {
     }
     &_small-padding {
       padding-top: $sectionPadding / 2;
-      padding-bottom: $sectionPadding / 4;
+      padding-bottom: $sectionPadding / 2;
     }
     &_no-padding {
       padding: 0;
@@ -105,6 +113,33 @@ export default {
     }
     &_white {
       background-color: $white;
+    }
+  }
+}
+
+.contact {
+  height: 230px;
+  overflow: hidden;
+  &__bg {
+    @include font(200px, 900, 130px);
+    font-family: $heading-font;
+    text-transform: uppercase;
+    position: absolute;
+    margin: 0;
+    top: 0px;
+    left: 0;
+    color: $black;
+    opacity: 0.03;
+    overflow: hidden;
+    width: 100%;
+    @include mq(xl) {
+      @include font(200px, 900, 120px);
+    }
+    @include mq(s) {
+      @include font(150px, 900, 100px);
+    }
+    @include mq(xxs) {
+      @include font(100px, 900, 70px);
     }
   }
 }

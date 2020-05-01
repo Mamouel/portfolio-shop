@@ -1,32 +1,38 @@
 <template>
-  <div class="teacher wrapper">
+  <div class="teacher2 wrapper">
     <!-- <h2 data-aos="zoom-in" data-aos-once="true">Your teacher</h2> -->
-    <div class="teacher__contact">
-      <div class="teacher__contact_mail">
-        <a href="mailto:nikobigorre@gmail.com">nikobigorre@gmail.com</a>
-      </div>
-      <div class="teacher__contact_phone">
-        <a href="tel:0041 76 230 17 22">0041 76 230 17 22</a>
-      </div>
+
+    <div class="teacher2__item" data-aos="fade-right" data-aos-once="true">
+      <div class="teacher2__item_image teacher2-image"></div>
+      <a href="https://www.aisi.ski/" target="_blank" class="teacher2__item_image certif-image"></a>
+      <!-- <div class="teacher2__contact">
+        <div class="teacher2__contact_mail">
+          <a href="mailto:nikobigorre@gmail.com">nikobigorre@gmail.com</a>
+        </div>
+        <div class="teacher2__contact_phone">
+          <a href="tel:0041 76 230 17 22">0041 76 230 17 22</a>
+        </div>
+      </div>-->
     </div>
-    <div class="teacher__item" data-aos="fade-right" data-aos-once="true">
-      <div class="teacher__item_image teacher__item_big teacher-image"></div>
-      <div class="teacher__item_text teacher__item_big">
+    <div class="teacher2__item">
+      <div class="teacher2__item_text">
         <p v-for="(item, index) in text.teacher[lang]" :key="index">{{ item }}</p>
       </div>
-    </div>
-    <div class="teacher__item teacher__item_right" data-aos="fade-left" data-aos-once="true">
-      <div class="teacher__item_text">
+      <div class="teacher2__item_text">
         <p v-for="(item, index) in text.aisi[lang]" :key="index">{{ item }}</p>
       </div>
-      <div class="teacher__item_image certif-image"></div>
     </div>
+    <!-- <div class="teacher2__item teacher2__item_right" data-aos="fade-left" data-aos-once="true">
+      <div class="teacher2__item_text">
+        <p v-for="(item, index) in text.aisi[lang]" :key="index">{{ item }}</p>
+      </div>
+    </div>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: "Teacher",
+  name: "Teacher2",
   props: {
     lang: String
   },
@@ -35,20 +41,24 @@ export default {
       text: {
         teacher: {
           en: [
+            "Nico,",
             "Familiar with the area of the 4 Valleys and the surroundings, I am pleased to support children and adults whatever their level and requirements, on or off the slopes, and this, with maximum safety!",
             "Do not hesitate to contact me if you want to evolve in such practices or simply discover them!"
           ],
           fr: [
+            "Nico,",
             "Connaissant parfaitement le domaine des 4 vallées et ses environs, je me fais un plaisir d’accompagner petits et grands quel que soit leur niveau et leurs exigences, sur ou en dehors des pistes et ceci avec une sécurité optimale !",
             "Je vous emmène volontiers à la découverte des innombrables recoins de nature offerts par cette région au cours de votre séjour."
           ]
         },
         aisi: {
           en: [
+            "AISI",
             "Familiar with the area of the 4 Valleys and the surroundings, I am pleased to support children and adults whatever their level and requirements, on or off the slopes, and this, with maximum safety!",
             "Do not hesitate to contact me if you want to evolve in such practices or simply discover them!"
           ],
           fr: [
+            "AISI",
             "Tous les Moniteurs membres de l’AISI sont titulaires du Brevet Fédéral de Professeur de Sports de Neige délivré par Swiss Snowsports et sont assurés dans l’exercice de leur activité (et leurs clients aussi)."
           ]
         }
@@ -59,7 +69,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/style/index";
-.teacher {
+.teacher2 {
   // h2 {
   //   text-align: right;
   //   margin-bottom: 85px;
@@ -72,75 +82,106 @@ export default {
   //   }
   // }
   &__contact {
-    display: flex;
-    justify-content: space-between;
-    @include mq(m) {
-      flex-direction: column;
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+    background-color: $white;
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    div {
+      padding: 20px 0;
     }
     a {
-      @include font(20px, 400, 20px);
-      color: $white;
+      @include font(20px, 700, 20px);
+      color: $black;
     }
   }
   &__item {
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 10px;
     color: $black;
     width: 100%;
     @include mq(m) {
       flex-direction: column;
     }
-    &_right {
-      margin-left: auto;
-    }
     &_image {
-      height: 345px;
-      width: 40%;
       @include box-shadow;
       @include background;
       background-color: $greyMed;
-      &.teacher-image {
+      &.teacher2-image {
         background-image: url("~@/assets/teacher.jpg");
-        margin-right: 15px;
-      width: 60%;
+        min-height: 500px;
+        // position: absolute;
+        width: 100%;
         @include mq(m) {
           width: 100%;
           margin-right: 0px;
         }
       }
       &.certif-image {
+        height: 300px;
+        width: 450px;
         background-image: url("~@/assets/aisi-logo.png");
-        margin-left: 15px;
         background-size: contain;
+        position: absolute;
         background-color: $white;
+        top: -70px;
+        left: 70px;
+        &:hover {
+          transform: scale(1.1);
+        }
+        @include mq(l) {
+          left: 20px;
+          height: 200px;
+          width: 300px;
+        }
         @include mq(m) {
-          width: 100%;
-          margin-left: 0px;
+          top: 20px;
+        }
+        @include mq(s) {
+          width: 60%;
+          left: 20px;
+          top: -20px;
+          position: relative;
+        }
+        @include mq(ph) {
+          width: 60%;
+          height: 100px;
+          left: 0px;
         }
       }
     }
     &_text {
-      height: 345px;
       overflow: hidden;
       width: 60%;
       box-sizing: border-box;
       background-color: $white;
       @include box-shadow;
-      padding: 80px 50px;
+      padding: 60px 50px;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
+      &:first-child {
+        margin-right: 5px;
+      }
+      &:last-child {
+        margin-left: 5px;
+      }
       @include mq(m) {
         width: 100%;
+      }
+      p:first-child {
+        @include font(40px, 700, 50px);
+        margin-bottom: 20px;
+        font-family: $heading-font;
       }
       p {
         margin: 0;
       }
-    }
-    &_big {
-      height: 400px;
     }
   }
 }

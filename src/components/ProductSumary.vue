@@ -1,5 +1,5 @@
 <template>
-  <div class="product-sumary wrapper">
+  <div class="product-sumary wrapper" data-aos="fade" data-aos-once="true">
     <h2>{{ text.title[lang] }}</h2>
     <div class="product-sumary__items">
       <router-link to="/lessons" class="product-sumary__items_item lessons">

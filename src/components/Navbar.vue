@@ -3,51 +3,29 @@
     <div class="navbar__ctn wrapper">
       <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
       <div class="navbar__right">
-        <div
-          class="navbar__links"
-          @mouseover="menuOpen = true"
-          @mouseleave="menuOpen = false"
-          :class="menuOpen ? 'open' : 'closed'"
-        >
-          <router-link
-            @click.native="menuOpen = !menuOpen"
-            class="button side-menu-btn"
-            to="/"
-          >Lessons</router-link>
-          <router-link
-            @click.native="menuOpen = !menuOpen"
-            class="button side-menu-btn"
-            to="/"
-          >Teacher</router-link>
-          <router-link
-            @click.native="menuOpen = !menuOpen"
-            class="button side-menu-btn"
-            to="/"
-          >Packagess</router-link>
-        </div>
-        <div
+        <!-- <div
           class="navbar__links navbar__links_mobile"
           @mouseover="menuOpen = true"
           @mouseleave="menuOpen = false"
           :class="menuOpen ? 'open' : 'closed'"
         >
           <router-link
-            @click.native="menuOpen = !menuOpen"
+            @click.native="openMenu(!menuOpen)"
             class="button side-menu-btn"
             to="/"
           >Lessons</router-link>
           <router-link
-            @click.native="menuOpen = !menuOpen"
+            @click.native="openMenu(!menuOpen)"
             class="button side-menu-btn"
             to="/"
           >Teacher</router-link>
           <router-link
-            @click.native="menuOpen = !menuOpen"
+            @click.native="openMenu(!menuOpen)"
             class="button side-menu-btn"
             to="/"
           >Packagess</router-link>
-        </div>
-        <div class="menu-burger" @mouseover="menuOpen = true" @mouseleave="menuOpen = false">
+        </div> -->
+        <div class="menu-burger" @click="openMenu(!menuOpen)">
           <div class="menu-burger-btn" :class="menuOpen ? 'open' : 'closed'">
             <span class="line top"></span>
             <span class="line middle"></span>
@@ -71,6 +49,15 @@
           </div>
         </div>
       </div>
+      <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
+        <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
+
+        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#teacher2' }">Teacher</router-link>
+        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#location' }">Station</router-link>
+        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#products' }">Lessons</router-link>
+        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#prices' }">Prices</router-link>
+        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#partners' }">Partners</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -79,11 +66,11 @@
 export default {
   name: "Navbar",
   props: {
-    lang: String
+    lang: String,
+    menuOpen: Boolean
   },
   data() {
     return {
-      menuOpen: false,
       bodyScroll: false,
       displayLang: false
     };
@@ -98,6 +85,9 @@ export default {
     },
     changeLang(value) {
       this.$emit("newLang", value);
+    },
+    openMenu(value) {
+      this.$emit("toggleMenu", value);
     }
   },
   created() {
@@ -121,7 +111,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include transition(background-color 0.3s ease);
+  @include transition(background-color 1.3s ease);
   @include mq(s) {
     height: $navbarHeightMobile;
   }
@@ -130,8 +120,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     img {
-      height: 50px;
-      padding: 20px 0;
+      height: 90px;
       @include mq(s) {
         padding: 0px;
       }
@@ -152,27 +141,37 @@ export default {
   }
 
   &__links {
+    font-family: $heading-font;
+
     z-index: 100;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    height: $navbarHeight;
-    background-color: $transparentColor;
-    @include transition(transform 0.3s ease);
-    @include mq(s) {
-      display: none;
+    position: absolute;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    // height: $navbarHeight;
+    // background-color: $transparentColor;
+    // padding-top: 20px;
+    background-color: $greyLight;
+    height: 100vh;
+    @include box-shadow;
+    img {
+      height: 70px;
+      padding: 30px 0;
     }
-    @include mq(xs) {
-      display: none;
-    }
-    @include mq(ph) {
-      display: none;
-    }
-    a {
-      margin: 10px;
-      @include font(16px, normal, 20px);
+    .side-menu-btn {
+      @include font(34px, 900, 30px);
+      color: $black;
+      border-bottom: 1px solid $black;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
     }
 
     &.open {
+      @include transition(transform 0s ease-in);
       .menu-burger-btn {
         .line {
           background-color: $primaryDark;
@@ -181,42 +180,7 @@ export default {
     }
 
     &.closed {
-      transform: translateY(-100%);
-      @include mq(s) {
-        transform: translateX(100%);
-      }
-    }
-
-    &_mobile {
-      display: none;
-      position: absolute;
-      width: 30vw;
-      flex-direction: column;
-      background-color: $white;
-      height: 100vh;
-      top: 0;
-      right: 0;
-      z-index: 1000;
-      padding-top: 75px;
-      @include mq(s) {
-        display: flex;
-      }
-      @include mq(xxs) {
-        width: 100vw;
-      }
-      &.open {
-        .menu-burger-btn {
-          .line {
-            background-color: $primaryDark;
-          }
-        }
-      }
-
-      &.closed {
-        @include mq(s) {
-          transform: translateX(100%);
-        }
-      }
+      @include transition(transform 2s ease);
     }
   }
 
@@ -280,24 +244,24 @@ export default {
       }
     }
 
-    // .menu-burger-btn.open {
-    //   .top {
-    //     transform: rotate(45deg);
-    //     top: 40%;
-    //   }
+    .menu-burger-btn.open {
+      .top {
+        transform: rotate(45deg);
+        top: 40%;
+      }
 
-    //   .middle,
-    //   .bottom {
-    //     transform: rotate(-45deg);
-    //     top: 40%;
-    //   }
-    // }
+      .middle,
+      .bottom {
+        transform: rotate(-45deg);
+        top: 40%;
+      }
+    }
   }
   .lang {
     position: relative;
     height: 60px;
     // width: 60px;
-      font-family: $heading-font;
+    font-family: $heading-font;
 
     .lang-btn {
       display: flex;
