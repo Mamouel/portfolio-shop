@@ -140,11 +140,15 @@ export default {
     &.second-shadow {
       position: absolute;
       background-color: $primaryDark;
-      opacity: 0.4;
+      // opacity: 0.6;
       right: 100px;
       z-index: 1;
       width: 70%;
-      margin-top: 50px;
+      left: 0;
+      top: 50px;
+      height: 600px;
+      margin-right: 100px;
+      padding: 0;
     }
     &.second-image {
       position: absolute;
@@ -152,6 +156,7 @@ export default {
       background-image: url("~@/assets/banner4.jpg");
       right: 0;
       width: 60%;
+      // margin-right: 100px;
     }
   }
 }

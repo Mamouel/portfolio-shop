@@ -3,28 +3,6 @@
     <div class="navbar__ctn wrapper">
       <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
       <div class="navbar__right">
-        <!-- <div
-          class="navbar__links navbar__links_mobile"
-          @mouseover="menuOpen = true"
-          @mouseleave="menuOpen = false"
-          :class="menuOpen ? 'open' : 'closed'"
-        >
-          <router-link
-            @click.native="openMenu(!menuOpen)"
-            class="button side-menu-btn"
-            to="/"
-          >Lessons</router-link>
-          <router-link
-            @click.native="openMenu(!menuOpen)"
-            class="button side-menu-btn"
-            to="/"
-          >Teacher</router-link>
-          <router-link
-            @click.native="openMenu(!menuOpen)"
-            class="button side-menu-btn"
-            to="/"
-          >Packagess</router-link>
-        </div> -->
         <div class="menu-burger" @click="openMenu(!menuOpen)">
           <div class="menu-burger-btn" :class="menuOpen ? 'open' : 'closed'">
             <span class="line top"></span>
@@ -50,13 +28,30 @@
         </div>
       </div>
       <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
-        <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
-
-        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#teacher2' }">Teacher</router-link>
-        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#location' }">Station</router-link>
-        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#products' }">Lessons</router-link>
-        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#prices' }">Prices</router-link>
-        <router-link class="side-menu-btn" :to="{ name: 'Home', hash: '#partners' }">Partners</router-link>
+        <router-link
+          class="side-menu-btn"
+          :to="{ name: 'Home', hash: '#teacher2' }"
+        >{{ text.teacher[lang] }}</router-link>
+        <router-link
+          class="side-menu-btn"
+          :to="{ name: 'Home', hash: '#location' }"
+        >{{ text.location[lang] }}</router-link>
+        <router-link
+          class="side-menu-btn"
+          :to="{ name: 'Home', hash: '#products' }"
+        >{{ text.lessons[lang] }}</router-link>
+        <router-link
+          class="side-menu-btn"
+          :to="{ name: 'Home', hash: '#prices' }"
+        >{{ text.prices[lang] }}</router-link>
+        <router-link
+          class="side-menu-btn"
+          :to="{ name: 'Home', hash: '#partners' }"
+        >{{ text.partners[lang] }}</router-link>
+        <router-link
+          class="side-menu-btn"
+          :to="{ name: 'Home', hash: '#contact' }"
+        >{{ text.contact[lang] }}</router-link>
       </div>
     </div>
   </div>
@@ -72,7 +67,33 @@ export default {
   data() {
     return {
       bodyScroll: false,
-      displayLang: false
+      displayLang: false,
+      text: {
+        teacher: {
+          en: "Teacher",
+          fr: "Prof"
+        },
+        location: {
+          en: "Location",
+          fr: "Station"
+        },
+        lessons: {
+          en: "Lessons",
+          fr: "Cours"
+        },
+        prices: {
+          en: "Prices",
+          fr: "Prix"
+        },
+        partners: {
+          en: "Partners",
+          fr: "Partenaires"
+        },
+        contact: {
+          en: "Contact",
+          fr: "Contact"
+        }
+      }
     };
   },
   methods: {
@@ -157,10 +178,6 @@ export default {
     background-color: $greyLight;
     height: 100vh;
     @include box-shadow;
-    img {
-      height: 70px;
-      padding: 30px 0;
-    }
     .side-menu-btn {
       @include font(34px, 900, 30px);
       color: $black;

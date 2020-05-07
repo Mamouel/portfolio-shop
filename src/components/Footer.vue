@@ -3,12 +3,10 @@
     <div class="footer__wrapper wrapper">
       <!-- <div class="footer__section">
         <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
-      </div> -->
+      </div>-->
+      <div class="footer__mention">{{ text.mention[0][lang] }}</div>
       <div class="footer__mention">
-        © 2020 - Ride and Smile Snowsports
-      </div>
-      <div class="footer__mention">
-        Conception et réalisation
+        {{ text.mention[1][lang] }}
         <a href="mailto:e-dodier@hotmail.fr">Mamouel</a>
       </div>
     </div>
@@ -17,7 +15,23 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  props: {
+    lang: String
+  },
+  data() {
+    return {
+      text: {
+        mention: [
+          {
+            en: "© 2020 - Ride and Smile Snowsports",
+            fr: "© 2020 - Ride and Smile Snowsports"
+          },
+          { en: "Design and production", fr: "Conception et réalisation" }
+        ]
+      }
+    };
+  }
 };
 </script>
 
@@ -31,8 +45,7 @@ export default {
     align-items: center;
     img {
       height: 50px;
-    padding: 20px 0;
-
+      padding: 20px 0;
     }
   }
   &__mention {

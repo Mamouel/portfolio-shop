@@ -25,7 +25,12 @@
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
       >{{ subtitle }}</p>
-      <button v-if="type === 'home'" class="btn btn__primary">{{ text.bookBtn[lang] }}</button>
+      <router-link
+        v-if="type === 'home'"
+        :to="{ name: 'Home', hash: '#contact' }"
+        class="btn btn__primary"
+      >{{ text.bookBtn[lang] }}</router-link>
+      <button class="btn scroll-down-btn" @click="scrollDown()">scroll</button>
     </div>
   </div>
 </template>
@@ -37,8 +42,8 @@ export default {
     return {
       text: {
         bookBtn: {
-          en: "Book",
-          fr: "Réserver"
+          en: "Contact",
+          fr: "Contact"
         }
       }
     };
@@ -49,6 +54,11 @@ export default {
     subtitle: String,
     lang: String,
     type: String
+  },
+  methods: {
+    scrollDown() {
+      return window.scrollBy(0, window.innerHeight);
+    }
   }
 };
 </script>
@@ -64,7 +74,7 @@ export default {
   align-items: center;
   &.home {
     background-image: url("~@/assets/banner2.jpg");
-    height: 90vh;
+    height: 100vh;
     @include mq(xxs) {
       height: 90vh;
       background-image: url("~@/assets/lesson2.jpg");
@@ -128,6 +138,22 @@ export default {
     @include mq(s) {
       text-align: center;
       @include font(20px, 700, 18px);
+    }
+  }
+  .scroll-down-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: $primary;
+    &:hover {
+      background-color: $primaryDark;
     }
   }
 }

@@ -16,22 +16,22 @@
     <!-- <div id="location" class="home-section home-section_small-padding home-section_grey">
       <TextImageFlex :lang="lang" type="first" />
     </div>-->
-    <div id="location" class="home-section home-section_black">
+    <div id="location" class="home-section home-section_grey" style="padding-bottom: 300px">
       <TextImageFlex :lang="lang" type="second" />
     </div>
-    <div id="products" class="home-section home-section_black">
+    <div id="products" class="home-section home-section_grey">
       <Products :lang="lang" />
     </div>
-    <!-- <div id="products2" class="home-section home-section_primary-dark">
-      <ProductSumary :lang="lang" />
-    </div>-->
-    <div class="home-section home-section_grey home-section_no-padding">
-      <div class="contact">
-        <p class="contact__bg">Get in touch</p>
-      </div>
+    <div id="prices" class="home-section home-section_primary-dark">
+      prices
     </div>
     <div id="partners" class="home-section home-section_small-padding home-section_white">
       <Partners :lang="lang" />
+    </div>
+    <div id="contact" class="home-section home-section_grey home-section_no-padding">
+      <div class="contact">
+        <p class="contact__bg">Get in touch</p>
+      </div>
     </div>
   </div>
 </template>

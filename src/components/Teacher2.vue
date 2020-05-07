@@ -22,11 +22,6 @@
         <p v-for="(item, index) in text.aisi[lang]" :key="index">{{ item }}</p>
       </div>
     </div>
-    <!-- <div class="teacher2__item teacher2__item_right" data-aos="fade-left" data-aos-once="true">
-      <div class="teacher2__item_text">
-        <p v-for="(item, index) in text.aisi[lang]" :key="index">{{ item }}</p>
-      </div>
-    </div>-->
   </div>
 </template>
 
@@ -54,8 +49,7 @@ export default {
         aisi: {
           en: [
             "AISI",
-            "Familiar with the area of the 4 Valleys and the surroundings, I am pleased to support children and adults whatever their level and requirements, on or off the slopes, and this, with maximum safety!",
-            "Do not hesitate to contact me if you want to evolve in such practices or simply discover them!"
+            "All AISI members Monitors hold the Federal Patent Snow Sports Teacher and are insured in the exercise of their business ( so as their clients)"
           ],
           fr: [
             "AISI",
@@ -101,7 +95,6 @@ export default {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    align-items: center;
     margin-top: 10px;
     color: $black;
     width: 100%;
@@ -123,8 +116,8 @@ export default {
         }
       }
       &.certif-image {
-        height: 300px;
-        width: 450px;
+        height: 250px;
+        width: 300px;
         background-image: url("~@/assets/aisi-logo.png");
         background-size: contain;
         position: absolute;
@@ -163,7 +156,6 @@ export default {
       @include box-shadow;
       padding: 60px 50px;
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
       &:first-child {
         margin-right: 5px;
