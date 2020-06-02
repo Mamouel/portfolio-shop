@@ -5,10 +5,10 @@
         <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
       </div>-->
       <div class="footer__mention">{{ text.mention[0][lang] }}</div>
-      <div class="footer__mention">
+      <!-- <div class="footer__mention">
         {{ text.mention[1][lang] }}
         <a href="mailto:e-dodier@hotmail.fr">Mamouel</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -41,7 +41,7 @@ export default {
   background-color: $greyLight;
   &__wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     img {
       height: 50px;

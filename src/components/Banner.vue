@@ -151,9 +151,9 @@ export default {
     height: 60px;
     transform: translateX(-50%);
     border-radius: 50%;
-    background-color: $primary;
+    background-color: $secondary;
     &:hover {
-      background-color: $primaryDark;
+      background-color: $secondaryLight;
     }
   }
 }

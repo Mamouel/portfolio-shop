@@ -1,5 +1,5 @@
 <template>
-  <div class="text-img-flex wrapper">
+  <div class="text-img-flex">
     <div class="text-img-flex__item" :class="type" data-aos="slide-up" data-aos-once="true">
       <h2>{{ text.title[lang] }}</h2>
       <p>La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux</p>
@@ -34,7 +34,8 @@ export default {
         },
         parag: [
           {
-            en: "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux",
+            en:
+              "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux",
             fr: ""
           },
           {
@@ -156,6 +157,28 @@ export default {
       background-image: url("~@/assets/banner4.jpg");
       right: 0;
       width: 60%;
+      // margin-right: 100px;
+    }
+    &.third {
+      width: 50%;
+      color: $greyLight;
+      box-sizing: border-box;
+      padding: 50px;
+      z-index: 10;
+      background-color: $transparentColor;
+      p {
+        padding-right: 200px;
+      }
+    }
+    &.third-shadow {
+      display: none;
+    }
+    &.third-image {
+      // position: absolute;
+      z-index: 2;
+      background-image: url("~@/assets/banner4.jpg");
+      right: 0;
+      width: 50%;
       // margin-right: 100px;
     }
   }

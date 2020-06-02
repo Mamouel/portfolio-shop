@@ -10,14 +10,14 @@
     <!-- <div id="teacher" class="home-section home-section_black">
       <Teacher :lang="lang" />
     </div>-->
-    <div id="teacher2" class="home-section home-section_grey">
-      <Teacher2 :lang="lang" />
+    <div id="teacher3" class="home-section home-section_first">
+      <Teacher3 :lang="lang" />
     </div>
-    <!-- <div id="location" class="home-section home-section_small-padding home-section_grey">
-      <TextImageFlex :lang="lang" type="first" />
-    </div>-->
-    <div id="location" class="home-section home-section_grey" style="padding-bottom: 300px">
-      <TextImageFlex :lang="lang" type="second" />
+    <div class="home-section home-section_small-padding home-section_white">
+      <Certification :lang="lang" />
+    </div>
+    <div id="location" class="home-section home-section_black">
+      <TextImageFlex :lang="lang" type="third" />
     </div>
     <div id="products" class="home-section home-section_grey">
       <Products :lang="lang" />
@@ -39,7 +39,8 @@
 <script>
 import Banner from "@/components/Banner.vue";
 // import Teacher from "@/components/Teacher.vue";
-import Teacher2 from "@/components/Teacher2.vue";
+import Certification from "@/components/Certification.vue";
+import Teacher3 from "@/components/Teacher3.vue";
 import Partners from "@/components/Partners.vue";
 import Products from "@/components/Products.vue";
 import TextImageFlex from "@/components/TextImageFlex.vue";
@@ -64,7 +65,9 @@ export default {
     Banner,
     // ProductSumary,
     // Teacher,
-    Teacher2,
+    // Teacher2,
+    Certification,
+    Teacher3,
     Partners,
     Products,
     TextImageFlex
@@ -76,19 +79,22 @@ export default {
 @import "@/style/index";
 .home {
   .home-section {
-    padding: $sectionPadding 0;
+    // padding: $sectionPadding 0;
     display: flex;
     box-sizing: border-box;
     position: relative;
-    @include mq(l) {
-      padding: 100px 0;
-    }
-    @include mq(s) {
-      padding: 50px 0;
-    }
-    @include mq(xxs) {
-      padding: 15px 0;
-    }
+    // @include mq(l) {
+    //   padding: 100px 0;
+    // }
+    // @include mq(s) {
+    //   padding: 50px 0;
+    // }
+    // @include mq(xxs) {
+    //   padding: 15px 0;
+    // }
+    // &_first {
+    //   padding-top: 200px;
+    // }
     &_small-padding {
       padding-top: $sectionPadding / 2;
       padding-bottom: $sectionPadding / 2;

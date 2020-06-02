@@ -42,7 +42,7 @@ export default {
   width: calc(100% / 3 - 5px);
   margin-left: 5px;
   margin-top: 5px;
-  height: 600px;
+  height: 500px;
   @include background;
   background-color: $black;
   @include mq(xl) {
@@ -50,9 +50,9 @@ export default {
   }
   @include mq(s) {
     width: 100%;
-    height: 400px;
+    height: 300px;
     .overlay {
-      height: 400px !important;
+      height: 300px !important;
       opacity: 0.6 !important;
     }
     .overlay-content {
@@ -65,7 +65,8 @@ export default {
     color: $white;
     z-index: 10;
     padding: 40px;
-    @include font(80px, 900, 70px);
+    text-transform: none;
+    @include font(70px, 900, 70px);
     @include mq(m) {
       @include font(60px, 900, 50px);
       margin-top: 100px;
@@ -97,7 +98,7 @@ export default {
 
   &:hover {
     .overlay {
-      height: 600px;
+      height: 500px;
       opacity: 0.4;
     }
 
@@ -109,7 +110,7 @@ export default {
     h3 {
       font-size: 26px;
       color: $white;
-      background-color: $primaryDark;
+      background-color: $secondary;
     }
   }
 
