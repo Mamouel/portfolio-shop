@@ -26,7 +26,7 @@ export default {
     return {
       text: {
         title: {
-          en: "From 4 years old, for all levels",
+          en: ["From 4", "years old, for", "all levels"],
           fr: "Dès 4 ans, pour tous les niveaux"
         },
         lessons: {
@@ -78,13 +78,14 @@ export default {
   // }
   button {
     margin-top: 45px;
+    margin-bottom: 50px;
   }
   &__items {
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-left: -5px;
-    padding: 100px 0;
   }
 }
 </style>

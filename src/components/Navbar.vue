@@ -15,43 +15,61 @@
             class="lang-btn"
             @mouseover="displayLang = true"
             @mouseleave="displayLang = false"
-          >{{ lang }}</div>
+          >
+            {{ lang }}
+          </div>
           <div
             class="lang-dropdown"
             :class="displayLang ? 'open' : 'closed'"
             @mouseover="displayLang = true"
             @mouseleave="displayLang = false"
           >
-            <div class="lang-dropdown__item" @click="changeLang('en')">English</div>
-            <div class="lang-dropdown__item" @click="changeLang('fr')">Francais</div>
+            <div class="lang-dropdown__item" @click="changeLang('en')">
+              English
+            </div>
+            <div class="lang-dropdown__item" @click="changeLang('fr')">
+              Francais
+            </div>
           </div>
         </div>
       </div>
       <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
         <router-link
           class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#teacher2' }"
-        >{{ text.teacher[lang] }}</router-link>
+          :to="{ name: 'Home', hash: '#teacher3' }"
+        >
+          <span @click="openMenu(!menuOpen)">{{ text.teacher[lang] }}</span>
+        </router-link>
         <router-link
           class="side-menu-btn"
           :to="{ name: 'Home', hash: '#location' }"
-        >{{ text.location[lang] }}</router-link>
+        >
+          <span @click="openMenu(!menuOpen)">{{ text.location[lang] }}</span>
+        </router-link>
         <router-link
           class="side-menu-btn"
           :to="{ name: 'Home', hash: '#products' }"
-        >{{ text.lessons[lang] }}</router-link>
+        >
+          <span @click="openMenu(!menuOpen)">{{ text.lessons[lang] }}</span>
+        </router-link>
         <router-link
           class="side-menu-btn"
           :to="{ name: 'Home', hash: '#prices' }"
-        >{{ text.prices[lang] }}</router-link>
+        >
+          <span @click="openMenu(!menuOpen)">{{ text.prices[lang] }}</span>
+        </router-link>
         <router-link
           class="side-menu-btn"
           :to="{ name: 'Home', hash: '#partners' }"
-        >{{ text.partners[lang] }}</router-link>
+        >
+          <span @click="openMenu(!menuOpen)">{{ text.partners[lang] }}</span>
+        </router-link>
         <router-link
           class="side-menu-btn"
           :to="{ name: 'Home', hash: '#contact' }"
-        >{{ text.contact[lang] }}</router-link>
+        >
+          <span @click="openMenu(!menuOpen)">{{ text.contact[lang] }}</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -144,6 +162,7 @@ export default {
       height: 90px;
       @include mq(s) {
         padding: 0px;
+        height: 60px;
       }
     }
   }

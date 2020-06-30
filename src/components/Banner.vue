@@ -30,7 +30,22 @@
         :to="{ name: 'Home', hash: '#contact' }"
         class="btn btn__primary"
       >{{ text.bookBtn[lang] }}</router-link>
-      <button class="btn scroll-down-btn" @click="scrollDown()">scroll</button>
+      <button class="btn scroll-down-btn" @click="scrollDown()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-chevron-down"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
     </div>
   </div>
 </template>
@@ -57,7 +72,11 @@ export default {
   },
   methods: {
     scrollDown() {
-      return window.scrollBy(0, window.innerHeight);
+      if (window.innerWidth < 500) {
+        return window.scrollBy(0, window.innerHeight - 400);
+      } else {
+        return window.scrollBy(0, window.innerHeight - 100);
+      }
     }
   }
 };
@@ -76,7 +95,7 @@ export default {
     background-image: url("~@/assets/banner2.jpg");
     height: 100vh;
     @include mq(xxs) {
-      height: 90vh;
+      height: 70vh;
       background-image: url("~@/assets/lesson2.jpg");
     }
   }
@@ -144,16 +163,27 @@ export default {
     position: absolute;
     bottom: 50px;
     left: 50%;
-    width: 60px;
+    width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 50px;
     transform: translateX(-50%);
     border-radius: 50%;
     background-color: $secondary;
     &:hover {
       background-color: $secondaryLight;
+    }
+    @include mq(xxs) {
+      position: relative;
+      margin-top: 150px;
+    }
+    svg {
+      width: 40px;
+      height: 40px;
+      polyline {
+        color: $white;
+      }
     }
   }
 }

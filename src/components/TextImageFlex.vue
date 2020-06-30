@@ -2,10 +2,12 @@
   <div class="text-img-flex">
     <div class="text-img-flex__item" :class="type" data-aos="slide-up" data-aos-once="true">
       <h2>{{ text.title[lang] }}</h2>
-      <p>La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux</p>
-      <p>Freeride sécurisé sur Verbier et ses alentours</p>
-      <p>Snowpark</p>
-      <p>Evenements en station</p>
+      <ul>
+        <li>La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux</li>
+        <li>Freeride sécurisé sur Verbier et ses alentours</li>
+        <li>Snowpark</li>
+        <li>Evenements en station</li>
+      </ul>
       <button class="btn btn__primary">{{ text.button[lang] }}</button>
     </div>
     <div class="text-img-flex__item" :class="type + '-shadow'"></div>
@@ -68,6 +70,9 @@ export default {
   box-sizing: border-box;
   position: relative;
   width: 100%;
+  @include mq(m) {
+    flex-direction: column;
+  }
   &__item {
     width: 50%;
     height: 100%;
@@ -76,13 +81,16 @@ export default {
     @include mq(l) {
       padding: 60px;
     }
+    @include mq(m) {
+      width: 100%;
+    }
     @include mq(s) {
       padding: 30px;
     }
     h2 {
       margin-bottom: 30px;
       @include font(60px, 900, 50px);
-      @include font(80px, 900, 70px);
+      // @include font(80px, 900, 70px);
       @include mq(m) {
         @include font(20px, 900, 20px);
       }
@@ -93,9 +101,6 @@ export default {
       height: auto;
       padding: 0;
       min-height: 600px;
-      @include mq(m) {
-        display: none;
-      }
     }
     &.first {
       // width: 60%;
@@ -106,7 +111,7 @@ export default {
       margin-bottom: -50px;
       z-index: 10;
       background-color: $primaryDark;
-      p {
+      li {
         // padding-right: 100px;
       }
     }
@@ -134,7 +139,7 @@ export default {
       margin-bottom: -50px;
       z-index: 10;
       background-color: $transparentColor;
-      p {
+      li {
         padding-right: 200px;
       }
     }
@@ -163,11 +168,33 @@ export default {
       width: 50%;
       color: $greyLight;
       box-sizing: border-box;
-      padding: 50px;
+      padding: 75px 50px;
       z-index: 10;
       background-color: $transparentColor;
-      p {
-        padding-right: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include mq(m) {
+        width: 100%;
+      }
+      ul {
+        list-style: none;
+        li {
+          padding-right: 60px;
+          @include font(20px, 500, 45px);
+          &:before {
+            content: "\2022";
+            color: $secondary;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+          }
+        }
+      }
+      button {
+        margin-left: auto;
+        width: 150px;
       }
     }
     &.third-shadow {
@@ -180,6 +207,12 @@ export default {
       right: 0;
       width: 50%;
       // margin-right: 100px;
+      @include mq(m) {
+        width: 100%;
+      }
+      @include mq(xxs) {
+        display: none;
+      }
     }
   }
 }

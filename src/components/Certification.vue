@@ -40,20 +40,28 @@ export default {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  height: 200px;
+  // height: 200px;
   padding: 0 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mq(m) {
+    // flex-direction: column-reverse;
+  }
   &__item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 70%;
     margin: auto;
+    @include mq(s) {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
     &_image {
       width: 200px;
-      height: 150px;
+      min-height: 150px;
       margin-top: -10px;
       @include background;
       background-size: contain;

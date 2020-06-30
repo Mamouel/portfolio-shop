@@ -1,6 +1,12 @@
 <template>
   <div class="card" :class="type">
-    <h2 v-if="type === 'main'">{{ text[lang] }}</h2>
+    <h2 v-if="type === 'main'">
+      <span
+        v-for="(part, index) in text[lang]"
+        :key="index"
+        :class="index % 2 === 0 && 'orange'"
+      >{{ part }}</span>
+    </h2>
     <div v-if="type !== 'main'" class="overlay"></div>
     <div v-if="type !== 'main'" class="overlay-content">
       <p>{{ text[lang] }}</p>
@@ -66,14 +72,22 @@ export default {
     z-index: 10;
     padding: 40px;
     text-transform: none;
+    // display: flex;
+    // flex-wrap: wrap;
     @include font(70px, 900, 70px);
     @include mq(m) {
       @include font(60px, 900, 50px);
-      margin-top: 100px;
     }
     @include mq(s) {
       padding: 20px;
       @include font(40px, 900, 40px);
+    }
+    span {
+      padding: 0 5px;
+      width: 100%;
+      &.orange {
+        color: $secondary;
+      }
     }
   }
   &.lessons {

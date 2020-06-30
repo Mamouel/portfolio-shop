@@ -45,11 +45,17 @@ export default {
   @include background;
   background-image: url("~@/assets/teacher.jpg");
   transform: scaleX(-1);
+  @include mq(s) {
+    padding-top: 50px;
+  }
   &__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 400px;
+    @include mq(s) {
+      padding-top: 100px;
+    }
     &_overlay {
       background: linear-gradient(
         to left,
@@ -58,10 +64,14 @@ export default {
       );
       background-size: cover;
       width: 100%;
-  height: 400px;
-  position: absolute;
-  top: 0;
-  left: 0;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include mq(s) {
+        margin-top: -50px;
+        height: 450px;
+      }
     }
     &_text {
       transform: scaleX(-1);
@@ -79,7 +89,7 @@ export default {
       &:last-child {
         margin-left: 5px;
       }
-      @include mq(m) {
+      @include mq(s) {
         width: 100%;
       }
     }

@@ -7,9 +7,6 @@
       titleOpt="Snowsports"
       :subtitle="text.subtitle[lang]"
     />
-    <!-- <div id="teacher" class="home-section home-section_black">
-      <Teacher :lang="lang" />
-    </div>-->
     <div id="teacher3" class="home-section home-section_first">
       <Teacher3 :lang="lang" />
     </div>
@@ -23,12 +20,18 @@
       <Products :lang="lang" />
     </div>
     <div id="prices" class="home-section home-section_primary-dark">
-      prices
+      <Prices :lang="lang" />
     </div>
-    <div id="partners" class="home-section home-section_small-padding home-section_white">
+    <div
+      id="partners"
+      class="home-section home-section_small-padding home-section_white"
+    >
       <Partners :lang="lang" />
     </div>
-    <div id="contact" class="home-section home-section_grey home-section_no-padding">
+    <div
+      id="contact"
+      class="home-section home-section_grey home-section_no-padding"
+    >
       <div class="contact">
         <p class="contact__bg">Get in touch</p>
       </div>
@@ -38,13 +41,12 @@
 
 <script>
 import Banner from "@/components/Banner.vue";
-// import Teacher from "@/components/Teacher.vue";
+import Prices from "@/components/Prices.vue";
 import Certification from "@/components/Certification.vue";
 import Teacher3 from "@/components/Teacher3.vue";
 import Partners from "@/components/Partners.vue";
 import Products from "@/components/Products.vue";
 import TextImageFlex from "@/components/TextImageFlex.vue";
-// import ProductSumary from "@/components/ProductSumary.vue";
 
 export default {
   name: "Home",
@@ -63,9 +65,7 @@ export default {
   },
   components: {
     Banner,
-    // ProductSumary,
-    // Teacher,
-    // Teacher2,
+    Prices,
     Certification,
     Teacher3,
     Partners,
@@ -79,7 +79,6 @@ export default {
 @import "@/style/index";
 .home {
   .home-section {
-    // padding: $sectionPadding 0;
     display: flex;
     box-sizing: border-box;
     position: relative;
