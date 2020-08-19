@@ -1,11 +1,11 @@
 <template>
   <div class="certification wrapper">
     <div class="certification__item">
-      <div class="certification__item_image" data-aos="slide-right" data-aos-once="true"></div>
+      <div class="certification__item_image" data-aos="fade-right" data-aos-once="true"></div>
       <p
         class="certification__item_text"
         v-if="lang === 'en'"
-        data-aos="slide-left"
+        data-aos="fade-left"
         data-aos-once="true"
       >
         All
@@ -14,7 +14,7 @@
       <p
         class="certification__item_text"
         v-if="lang === 'fr'"
-        data-aos="slide-left"
+        data-aos="fade-left"
         data-aos-once="true"
       >
         Tous les Moniteurs membres de

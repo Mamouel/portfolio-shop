@@ -1,12 +1,9 @@
 <template>
   <div class="text-img-flex">
-    <div class="text-img-flex__item" :class="type" data-aos="slide-up" data-aos-once="true">
+    <div class="text-img-flex__item" :class="type" data-aos="fade-up" data-aos-once="true">
       <h2>{{ text.title[lang] }}</h2>
       <ul>
-        <li>La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux</li>
-        <li>Freeride sécurisé sur Verbier et ses alentours</li>
-        <li>Snowpark</li>
-        <li>Evenements en station</li>
+        <li v-for="(item, index) in text.parag" :key="index">{{ text.parag[index][lang] }}</li>
       </ul>
       <button class="btn btn__primary">{{ text.button[lang] }}</button>
     </div>
@@ -14,7 +11,7 @@
     <div
       class="text-img-flex__item text-img-flex__item_image"
       :class="type + '-image'"
-      data-aos="slide-up"
+      data-aos="fade-up"
       data-aos-once="true"
     ></div>
   </div>
@@ -37,11 +34,11 @@ export default {
         parag: [
           {
             en:
-              "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux",
-            fr: ""
+              "Verbier station offers a various payground, well suited for all levels",
+            fr: "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux"
           },
           {
-            en: "",
+            en: "Secure freeride on Verbier and surroudings",
             fr: "Freeride sécurisé sur Verbier et ses alentours"
           },
           {
@@ -49,8 +46,8 @@ export default {
             fr: "Snowpark"
           },
           {
-            en: "Evenements en station",
-            fr: "Evenements en station"
+            en: "Events",
+            fr: "Evènements en station"
           }
         ],
         button: {

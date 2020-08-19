@@ -15,61 +15,49 @@
             class="lang-btn"
             @mouseover="displayLang = true"
             @mouseleave="displayLang = false"
-          >
-            {{ lang }}
-          </div>
+          >{{ lang }}</div>
           <div
             class="lang-dropdown"
             :class="displayLang ? 'open' : 'closed'"
             @mouseover="displayLang = true"
             @mouseleave="displayLang = false"
           >
-            <div class="lang-dropdown__item" @click="changeLang('en')">
-              English
-            </div>
-            <div class="lang-dropdown__item" @click="changeLang('fr')">
-              Francais
-            </div>
+            <div class="lang-dropdown__item" @click="changeLang('en')">English</div>
+            <div class="lang-dropdown__item" @click="changeLang('fr')">Francais</div>
           </div>
         </div>
       </div>
       <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
-        <router-link
-          class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#teacher3' }"
-        >
-          <span @click="openMenu(!menuOpen)">{{ text.teacher[lang] }}</span>
-        </router-link>
-        <router-link
-          class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#location' }"
-        >
-          <span @click="openMenu(!menuOpen)">{{ text.location[lang] }}</span>
-        </router-link>
-        <router-link
-          class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#products' }"
-        >
-          <span @click="openMenu(!menuOpen)">{{ text.lessons[lang] }}</span>
-        </router-link>
-        <router-link
-          class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#prices' }"
-        >
-          <span @click="openMenu(!menuOpen)">{{ text.prices[lang] }}</span>
-        </router-link>
-        <router-link
-          class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#partners' }"
-        >
-          <span @click="openMenu(!menuOpen)">{{ text.partners[lang] }}</span>
-        </router-link>
-        <router-link
-          class="side-menu-btn"
-          :to="{ name: 'Home', hash: '#contact' }"
-        >
-          <span @click="openMenu(!menuOpen)">{{ text.contact[lang] }}</span>
-        </router-link>
+        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
+          <router-link :to="{ name: 'Home', hash: '#teacher3' }">
+            <span>{{ text.teacher[lang] }}</span>
+          </router-link>
+        </div>
+        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
+          <router-link :to="{ name: 'Home', hash: '#location' }">
+            <span>{{ text.location[lang] }}</span>
+          </router-link>
+        </div>
+        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
+          <router-link :to="{ name: 'Home', hash: '#products' }">
+            <span>{{ text.lessons[lang] }}</span>
+          </router-link>
+        </div>
+        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
+          <router-link :to="{ name: 'Home', hash: '#prices' }">
+            <span>{{ text.prices[lang] }}</span>
+          </router-link>
+        </div>
+        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
+          <router-link :to="{ name: 'Home', hash: '#partners' }">
+            <span>{{ text.partners[lang] }}</span>
+          </router-link>
+        </div>
+        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
+          <router-link :to="{ name: 'Home', hash: '#contact' }">
+            <span>{{ text.contact[lang] }}</span>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -182,7 +170,6 @@ export default {
 
   &__links {
     font-family: $heading-font;
-
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -191,9 +178,6 @@ export default {
     right: -300px;
     top: 0;
     width: 300px;
-    // height: $navbarHeight;
-    // background-color: $transparentColor;
-    // padding-top: 20px;
     background-color: $greyLight;
     height: 100vh;
     @include box-shadow;
@@ -204,6 +188,9 @@ export default {
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
+      a {
+        color: $black;
+      }
     }
 
     &.open {

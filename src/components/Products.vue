@@ -27,7 +27,7 @@ export default {
       text: {
         title: {
           en: ["From 4", "years old, for", "all levels"],
-          fr: "Dès 4 ans, pour tous les niveaux"
+          fr: ["Dès 4", "ans, pour", "tous les niveaux"]
         },
         lessons: {
           en:
