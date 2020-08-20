@@ -2,11 +2,9 @@
   <div class="teacher3">
     <div class="teacher3__item wrapper" data-aos="fade-right" data-aos-once="true">
       <div class="teacher3__item_overlay"></div>
-      <p
-        class="teacher3__item_text"
-        v-for="(item, index) in text.teacher[lang]"
-        :key="index"
-      >{{ item }}</p>
+      <p class="teacher3__item_text">
+        <span v-for="(item, index) in text.teacher[lang]" :key="index">{{ item }}</span>
+      </p>
     </div>
   </div>
 </template>
@@ -44,15 +42,14 @@ export default {
   height: 400px;
   @include background;
   background-image: url("~@/assets/teacher.jpg");
-  transform: scaleX(-1);
   @include mq(s) {
     padding-top: 50px;
   }
   &__item {
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 400px;
     @include mq(s) {
       padding-top: 100px;
     }
@@ -74,20 +71,23 @@ export default {
       }
     }
     &_text {
-      transform: scaleX(-1);
       width: 50%;
-      // padding-right: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       margin: 10px 0;
       z-index: 10;
       box-sizing: border-box;
       color: $white;
       background-color: $transparentColor;
-      &:first-child {
-        margin-bottom: 15px;
-        @include font(40px, 700, 50px);
-      }
-      &:last-child {
-        margin-left: 5px;
+      span {
+        &:first-child {
+          margin-bottom: 15px;
+          @include font(40px, 700, 50px);
+        }
+        &:last-child {
+          margin-top: 15px;
+        }
       }
       @include mq(s) {
         width: 100%;

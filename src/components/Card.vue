@@ -59,11 +59,11 @@ export default {
     height: 300px;
     .overlay {
       height: 300px !important;
-      opacity: 0.6 !important;
+      // opacity: 0.6 !important;
     }
     .overlay-content {
       opacity: 1 !important;
-      visibility: visible !important;
+      // visibility: visible !important;
     }
   }
   h2 {

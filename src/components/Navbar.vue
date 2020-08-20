@@ -28,36 +28,11 @@
         </div>
       </div>
       <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
-        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
-          <router-link :to="{ name: 'Home', hash: '#teacher3' }">
-            <span>{{ text.teacher[lang] }}</span>
-          </router-link>
-        </div>
-        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
-          <router-link :to="{ name: 'Home', hash: '#location' }">
-            <span>{{ text.location[lang] }}</span>
-          </router-link>
-        </div>
-        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
-          <router-link :to="{ name: 'Home', hash: '#products' }">
-            <span>{{ text.lessons[lang] }}</span>
-          </router-link>
-        </div>
-        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
-          <router-link :to="{ name: 'Home', hash: '#prices' }">
-            <span>{{ text.prices[lang] }}</span>
-          </router-link>
-        </div>
-        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
-          <router-link :to="{ name: 'Home', hash: '#partners' }">
-            <span>{{ text.partners[lang] }}</span>
-          </router-link>
-        </div>
-        <div @click="openMenu(!menuOpen)" class="side-menu-btn">
-          <router-link :to="{ name: 'Home', hash: '#contact' }">
-            <span>{{ text.contact[lang] }}</span>
-          </router-link>
-        </div>
+        <router-link class="side-menu-btn" v-for="(item, index) in text" :key="index" :to="{ name: 'Home', hash: item.hash }">
+          <div @click="openMenu(!menuOpen)">
+            <span>{{ text[index][lang] }}</span>
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -74,32 +49,38 @@ export default {
     return {
       bodyScroll: false,
       displayLang: false,
-      text: {
-        teacher: {
+      text: [
+        {
           en: "Teacher",
-          fr: "Prof"
+          fr: "Prof",
+          hash: "#teacher3"
         },
-        location: {
+        {
           en: "Location",
-          fr: "Station"
+          fr: "Station",
+          hash: "#location"
         },
-        lessons: {
+        {
           en: "Lessons",
-          fr: "Cours"
+          fr: "Cours",
+          hash: "#products"
         },
-        prices: {
+        {
           en: "Prices",
-          fr: "Prix"
+          fr: "Prix",
+          hash: "#prices"
         },
-        partners: {
+        {
           en: "Partners",
-          fr: "Partenaires"
+          fr: "Partenaires",
+          hash: "#partners"
         },
-        contact: {
+        {
           en: "Contact",
-          fr: "Contact"
+          fr: "Contact",
+          hash: "#contact"
         }
-      }
+      ]
     };
   },
   methods: {
@@ -181,6 +162,11 @@ export default {
     background-color: $greyLight;
     height: 100vh;
     @include box-shadow;
+    @include mq(xs) {
+      width: 100vw;
+      right: -100vw;
+
+    }
     .side-menu-btn {
       @include font(34px, 900, 30px);
       color: $black;

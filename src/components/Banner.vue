@@ -95,8 +95,8 @@ export default {
     background-image: url("~@/assets/banner2.jpg");
     height: 100vh;
     @include mq(xxs) {
-      height: 70vh;
-      background-image: url("~@/assets/lesson2.jpg");
+      height: 90vh;
+      // background-image: url("~@/assets/lesson2.jpg");
     }
   }
   &.page {
@@ -107,6 +107,11 @@ export default {
     box-sizing: border-box;
     @include mq(s) {
       text-align: center;
+      margin-top: 120px;
+    }
+    @include mq(ph) {
+      text-align: center;
+      margin-top: 100px;
     }
   }
   &__title {
@@ -138,6 +143,10 @@ export default {
         padding: 15px;
         @include font(80px, 900, 60px);
       }
+      @include mq(ph) {
+        padding: 15px;
+        @include font(60px, 900, 45px);
+      }
     }
     &.page {
       @include font(80px, 900, 60px);
@@ -155,8 +164,12 @@ export default {
     text-align: left;
     @include font(24px, 900, 20px);
     @include mq(s) {
-      text-align: center;
+      // text-align: center;
       @include font(20px, 700, 18px);
+    }
+    @include mq(ph) {
+      padding: 15px;
+      @include font(16px, 900, 14px);
     }
   }
   .scroll-down-btn {
@@ -175,8 +188,7 @@ export default {
       background-color: $secondaryLight;
     }
     @include mq(xxs) {
-      position: relative;
-      margin-top: 150px;
+      bottom: 100px;
     }
     svg {
       width: 40px;

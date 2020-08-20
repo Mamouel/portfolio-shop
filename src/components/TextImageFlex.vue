@@ -5,7 +5,11 @@
       <ul>
         <li v-for="(item, index) in text.parag" :key="index">{{ text.parag[index][lang] }}</li>
       </ul>
-      <button class="btn btn__primary">{{ text.button[lang] }}</button>
+      <a
+        class="btn btn__primary"
+        href="https://www.verbier.ch/ete/"
+        target="_blank"
+      >{{ text.button[lang] }}</a>
     </div>
     <div class="text-img-flex__item" :class="type + '-shadow'"></div>
     <div
@@ -35,7 +39,8 @@ export default {
           {
             en:
               "Verbier station offers a various payground, well suited for all levels",
-            fr: "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux"
+            fr:
+              "La station de Verbier offre un terrain de jeu varié, adapté à tous les niveaux"
           },
           {
             en: "Secure freeride on Verbier and surroudings",
@@ -68,7 +73,7 @@ export default {
   position: relative;
   width: 100%;
   @include mq(m) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   &__item {
     width: 50%;
@@ -84,12 +89,18 @@ export default {
     @include mq(s) {
       padding: 30px;
     }
+    @include mq(ph) {
+      padding: 0px;
+    }
     h2 {
       margin-bottom: 30px;
       @include font(60px, 900, 50px);
       // @include font(80px, 900, 70px);
       @include mq(m) {
         @include font(20px, 900, 20px);
+      }
+      @include mq(ph) {
+        text-align: center;
       }
     }
     &_image {
@@ -98,6 +109,9 @@ export default {
       height: auto;
       padding: 0;
       min-height: 600px;
+      @include mq(m) {
+        min-height: 300px;
+      }
     }
     &.first {
       // width: 60%;
@@ -174,6 +188,12 @@ export default {
       @include mq(m) {
         width: 100%;
       }
+      @include mq(s) {
+        padding: 30px;
+      }
+      @include mq(ph) {
+        padding: 30px 15px;
+      }
       ul {
         list-style: none;
         li {
@@ -187,11 +207,20 @@ export default {
             width: 1em;
             margin-left: -1em;
           }
+          @include mq(s) {
+            padding-right: 30px;
+          }
+          @include mq(ph) {
+            padding-right: 10px;
+            @include font(18px, 500, 30px);
+          }
         }
       }
-      button {
+      a {
         margin-left: auto;
-        width: 150px;
+        @include mq(xxs) {
+          margin: 20px auto 0 auto;
+        }
       }
     }
     &.third-shadow {
@@ -208,7 +237,7 @@ export default {
         width: 100%;
       }
       @include mq(xxs) {
-        display: none;
+        // display: none;
       }
     }
   }

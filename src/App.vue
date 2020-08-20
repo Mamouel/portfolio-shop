@@ -58,6 +58,9 @@ export default {
   .menuOpen {
     @include transition(transform 0.5s ease-in);
     transform: translateX(-300px);
+    @include mq(xs) {
+      transform: translateX(-100vw);
+    }
   }
   .menuClosed {
     @include transition(transform 0.2s ease, background-color 0.3s ease);

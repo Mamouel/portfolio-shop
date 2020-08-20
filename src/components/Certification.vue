@@ -1,11 +1,11 @@
 <template>
   <div class="certification wrapper">
     <div class="certification__item">
-      <div class="certification__item_image" data-aos="fade-right" data-aos-once="true"></div>
+      <div class="certification__item_image" data-aos="fade-down" data-aos-once="true"></div>
       <p
         class="certification__item_text"
         v-if="lang === 'en'"
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-once="true"
       >
         All
@@ -54,9 +54,11 @@ export default {
     align-items: center;
     width: 70%;
     margin: auto;
-    @include mq(s) {
-      flex-direction: column;
+    @include mq(xl) {
       width: 100%;
+    }
+    @include mq(l) {
+      flex-direction: column;
       text-align: center;
     }
     &_image {
