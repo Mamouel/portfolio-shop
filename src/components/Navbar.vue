@@ -165,7 +165,6 @@ export default {
     @include mq(xs) {
       width: 100vw;
       right: -100vw;
-
     }
     .side-menu-btn {
       @include font(34px, 900, 30px);

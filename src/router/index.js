@@ -19,10 +19,14 @@ const router = new VueRouter({
   scrollBehavior(to, from, savedPosition) {
     console.log(to, from, savedPosition);
     if (to.hash) {
-      return window.scrollTo({
-        top: document.querySelector(to.hash).offsetTop - 100,
+      return {
+        selector: to.hash,
         behavior: "smooth"
-      });
+      }
+      // return window.scrollTo({
+      //   top: document.querySelector(to.hash).offsetTop - 100,
+      //   behavior: "smooth",
+      // });
     } else {
       return { x: 0, y: 0 };
     }

@@ -168,11 +168,17 @@ export default {
     box-sizing: border-box;
     @include transition(visibility 0.5s ease, opacity 0.5s ease);
     padding: 100px 20px 50px;
+    height: 100%;
 
     p,
     a {
       z-index: 13;
       @include font(18px, normal, 24px);
+    }
+    a {
+      position: absolute;
+      bottom: 25px;
+      transform: translateX(-50%);
     }
   }
 }

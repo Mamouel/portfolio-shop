@@ -1,12 +1,14 @@
 <template>
   <div class="product wrapper">
     <div class="product__items" data-aos="fade" data-aos-once="true">
-      <Card :lang="lang" type="main" :text="text['title']" />
-      <Card :lang="lang" type="lessons" title="Ski &amp; Snow" :text="text['lessons']" />
-      <Card :lang="lang" type="freeride" title="Freeride" :text="text['freeride']" />
-      <Card :lang="lang" type="freestyle" title="Freestyle" :text="text['freestyle']" />
-      <Card :lang="lang" type="family" title="Family trip" :text="text['family']" />
-      <Card :lang="lang" type="team" title="Team Building" :text="text['team']" />
+      <Card
+        v-for="(item, index) in items"
+        :key="index"
+        :lang="lang"
+        :type="item.type"
+        :title="item.title"
+        :text="item.text"
+      />
     </div>
     <button class="btn btn__primary">Book</button>
   </div>
@@ -24,39 +26,62 @@ export default {
   },
   data() {
     return {
-      text: {
-        title: {
-          en: ["From 4", "years old, for", "all levels"],
-          fr: ["Dès 4", "ans, pour", "tous les niveaux"]
+      items: [
+        {
+          text: {
+            en: ["From 4", "years old, for", "all levels"],
+            fr: ["Dès 4", "ans, pour", "tous les niveaux"]
+          },
+          type: "main"
         },
-        lessons: {
-          en:
-            "Private lesson or group of 6 people maximum, from 4 years old to whatever age",
-          fr:
-            "Leçon privée individuelle ou en groupe jusqu’à 6 personnes maximum, dès 4 ans"
+        {
+          text: {
+            en:
+              "Private lesson or group of 6 people maximum, from 4 years old to whatever age",
+            fr:
+              "Leçon privée individuelle ou en groupe jusqu’à 6 personnes maximum, dès 4 ans"
+          },
+          title: "Lessons",
+          type: "lessons"
         },
-        freeride: {
-          en:
-            "Discover safely the backcountry terrain offered Verbier and its surroundings! From beginners to experimented riders",
-          fr:
-            "Découvre en toute sécurité les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté."
+        {
+          text: {
+            en:
+              "Discover safely the backcountry terrain offered Verbier and its surroundings! From beginners to experimented riders",
+            fr:
+              "Découvre en toute sécurité les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté."
+          },
+          title: "Freeride",
+          type: "freeride"
         },
-        freestyle: {
-          en: "Freestyle initiation for experimented riders",
-          fr:
-            "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+        {
+          text: {
+            en: "Freestyle initiation for experimented riders",
+            fr:
+              "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+          },
+          title: "Freestyle",
+          type: "freestyle"
         },
-        family: {
-          en: "Freestyle initiation for experimented riders",
-          fr:
-            "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+        {
+          text: {
+            en: "Freestyle initiation for experimented riders",
+            fr:
+              "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+          },
+          title: "Family trip",
+          type: "family"
         },
-        team: {
-          en: "Freestyle initiation for experimented riders",
-          fr:
-            "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+        {
+          text: {
+            en: "Freestyle initiation for experimented riders",
+            fr:
+              "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+          },
+          title: "Team building",
+          type: "team"
         }
-      }
+      ]
     };
   }
 };
@@ -67,15 +92,6 @@ export default {
 .product {
   text-align: center;
   color: $white;
-  // h2 {
-  //   text-align: left;
-  //   margin-bottom: 85px;
-  //   color: $white;
-  //   padding: 40px;
-  //   @include mq(s) {
-  //     padding: 20px;
-  //   }
-  // }
   button {
     margin-top: 45px;
     margin-bottom: 50px;
