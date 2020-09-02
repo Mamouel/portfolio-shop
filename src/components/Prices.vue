@@ -1,6 +1,5 @@
 <template>
   <div class="prices wrapper" data-aos="fade" data-aos-once="true">
-    <h2>Prices</h2>
     <div class="prices__items">
       <div
         class="prices__items_item prices-items-item"
@@ -39,7 +38,7 @@ export default {
             },
             subtitle: {
               en: "3 hours 9am-12pm",
-              fr: "3 heure 9h-12h"
+              fr: "3 heures 9h-12h"
             },
             price: "315"
           },
@@ -50,7 +49,7 @@ export default {
             },
             subtitle: {
               en: "3 hours 1pm-4pm",
-              fr: "3 heure 13h-16h"
+              fr: "3 heures 13h-16h"
             },
             price: "255"
           },
@@ -61,7 +60,7 @@ export default {
             },
             subtitle: {
               en: "7 hours 9am-4pm",
-              fr: "7 heure 9h-16h"
+              fr: "7 heures 9h-16h"
             },
             price: "540"
           }
