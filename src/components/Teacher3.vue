@@ -6,6 +6,9 @@
         <span v-for="(item, index) in text.teacher[lang]" :key="index">{{ item }}</span>
       </p>
     </div>
+    <p class="teacher3__item_mobile wrapper">
+      <span v-for="(item, index) in text.teacher[lang]" :key="index">{{ item }}</span>
+    </p>
   </div>
 </template>
 
@@ -39,19 +42,16 @@ export default {
 @import "@/style/index";
 .teacher3 {
   width: 100%;
-  height: 400px;
-  @include background;
-  background-image: url("~@/assets/teacher.jpg");
-  @include mq(s) {
-    padding-top: 50px;
-  }
+  position: relative;
   &__item {
+    @include background;
+    background-image: url("~@/assets/teacher.jpg");
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     @include mq(s) {
-      padding-top: 100px;
+      // height: 200px;
     }
     &_overlay {
       background: linear-gradient(
@@ -66,8 +66,7 @@ export default {
       top: 0;
       left: 0;
       @include mq(s) {
-        margin-top: -50px;
-        height: 450px;
+        display: none;
       }
     }
     &_text {
@@ -77,9 +76,9 @@ export default {
       justify-content: space-between;
       margin: 10px 0;
       z-index: 10;
-      box-sizing: border-box;
       color: $white;
       background-color: $transparentColor;
+      padding: 20px;
       span {
         &:first-child {
           margin-bottom: 15px;
@@ -90,7 +89,34 @@ export default {
         }
       }
       @include mq(s) {
+        display: none;
+        position: absolute;
+        bottom: 0;
         width: 100%;
+        color: $black;
+        @include font(18px, 700, 20px);
+      }
+    }
+    &_mobile {
+      display: none;
+      @include mq(s) {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 50px 20px;
+        background-color: $primaryDark;
+        color: $white;
+        span {
+          @include font(18px, 500, 24px);
+          &:first-child {
+            margin-bottom: 15px;
+            @include font(20px, 700, 24px);
+          }
+          &:last-child {
+            display: none;
+          }
+        }
       }
     }
   }

@@ -125,7 +125,6 @@ export default {
       height: 345px;
       overflow: hidden;
       width: 60%;
-      box-sizing: border-box;
       background-color: $white;
       @include box-shadow;
       padding: 80px 50px;

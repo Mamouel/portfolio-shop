@@ -104,14 +104,13 @@ export default {
   }
   &__wrapper {
     // padding: 50px 0;
-    box-sizing: border-box;
     @include mq(s) {
       text-align: center;
-      margin-top: 120px;
+      // margin-top: 120px;
     }
     @include mq(ph) {
       text-align: center;
-      margin-top: 100px;
+      // margin-top: 100px;
     }
   }
   &__title {

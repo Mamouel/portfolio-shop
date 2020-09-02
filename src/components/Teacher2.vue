@@ -82,7 +82,6 @@ export default {
     background-color: $white;
     padding: 20px;
     width: 300px;
-    box-sizing: border-box;
     div {
       padding: 20px 0;
     }
@@ -94,7 +93,6 @@ export default {
   &__item {
     display: flex;
     justify-content: space-between;
-    box-sizing: border-box;
     margin-top: 10px;
     color: $black;
     width: 100%;
@@ -151,7 +149,6 @@ export default {
     &_text {
       overflow: hidden;
       width: 60%;
-      box-sizing: border-box;
       background-color: $white;
       @include box-shadow;
       padding: 60px 50px;

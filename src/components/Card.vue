@@ -75,12 +75,16 @@ export default {
     // display: flex;
     // flex-wrap: wrap;
     @include font(70px, 900, 70px);
-    @include mq(m) {
-      @include font(60px, 900, 50px);
-    }
     @include mq(s) {
+      padding: 40px 20px;
+    }
+    @include mq(xxs) {
       padding: 20px;
-      @include font(40px, 900, 40px);
+      @include font(60px, 900, 60px);
+    }
+    @include mq(ph) {
+      padding: 20px;
+      @include font(50px, 900, 50px);
     }
     span {
       padding: 0 5px;
@@ -99,15 +103,15 @@ export default {
   }
 
   &.freestyle {
-    background-image: url("~@/assets/freestyle2.jpg");
+    background-image: url("~@/assets/freestyle.jpg");
   }
 
   &.family {
-    background-image: url("~@/assets/group3.jpg");
+    background-image: url("~@/assets/family.jpg");
   }
 
   &.team {
-    background-image: url("~@/assets/group2.jpg");
+    background-image: url("~@/assets/group3.jpg");
   }
 
   &:hover {
@@ -137,7 +141,6 @@ export default {
     background-color: $black;
     opacity: 0;
     z-index: 2;
-    box-sizing: border-box;
     @include transition(
       height 0.3s ease,
       color 0.3s ease,
@@ -165,7 +168,6 @@ export default {
     opacity: 0;
     z-index: 12;
     visibility: hidden;
-    box-sizing: border-box;
     @include transition(visibility 0.5s ease, opacity 0.5s ease);
     padding: 100px 20px 50px;
     height: 100%;

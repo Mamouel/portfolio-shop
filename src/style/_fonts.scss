@@ -20,7 +20,7 @@ h1 {
 h2 {
     @include font(50px, 900, 40px);
     margin: 0;
-    text-transform: uppercase;
+    // text-transform: uppercase;
 }
 
 h3 {

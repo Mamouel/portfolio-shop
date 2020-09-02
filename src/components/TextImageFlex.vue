@@ -69,7 +69,6 @@ export default {
 @import "@/style/index";
 .text-img-flex {
   display: flex;
-  box-sizing: border-box;
   position: relative;
   width: 100%;
   @include mq(m) {
@@ -79,7 +78,6 @@ export default {
     width: 50%;
     height: 100%;
     padding: 100px;
-    // box-sizing: border-box;
     @include mq(l) {
       padding: 60px;
     }
@@ -178,7 +176,6 @@ export default {
     &.third {
       width: 50%;
       color: $greyLight;
-      box-sizing: border-box;
       padding: 75px 50px;
       z-index: 10;
       background-color: $transparentColor;
@@ -229,7 +226,7 @@ export default {
     &.third-image {
       // position: absolute;
       z-index: 2;
-      background-image: url("~@/assets/banner4.jpg");
+      background-image: url("~@/assets/station.jpg");
       right: 0;
       width: 50%;
       // margin-right: 100px;

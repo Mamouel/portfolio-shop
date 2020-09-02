@@ -115,7 +115,6 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 100;
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -172,7 +171,6 @@ export default {
       border-bottom: 1px solid $black;
       width: 100%;
       padding: 10px;
-      box-sizing: border-box;
       a {
         color: $black;
       }

@@ -1,13 +1,18 @@
 <template>
   <div class="prices wrapper" data-aos="fade" data-aos-once="true">
-    <div class="prices__items" >
-      <div class="prices__items_item prices-items-item" v-for="(item, index) in text.prices" :key="index">
-        <p class="prices-items-item__title">{{ item.title[lang] }}</p>
-        <p class="prices-items-item__subtitle">{{ item.subtitle[lang] }}</p>
+    <h2>Prices</h2>
+    <div class="prices__items">
+      <div
+        class="prices__items_item prices-items-item"
+        v-for="(item, index) in text.prices"
+        :key="index"
+      >
         <p class="prices-items-item__price">
           <span class="prices-items-item__price-devise">chf</span>
           <span class="prices-items-item__price-value">{{ item.price }}</span>
         </p>
+        <h3 class="prices-items-item__title">{{ item.title[lang] }}</h3>
+        <p class="prices-items-item__subtitle">{{ item.subtitle[lang] }}</p>
       </div>
     </div>
   </div>
@@ -40,25 +45,14 @@ export default {
           },
           {
             title: {
-              en: "Morning (L)",
-              fr: "Matin (L)"
+              en: "Afternoon",
+              fr: "Après-midi"
             },
             subtitle: {
-              en: "4 hours 9am-1pm",
-              fr: "4 heure 9h-13h"
+              en: "3 hours 1pm-4pm",
+              fr: "3 heure 13h-16h"
             },
-            price: "400"
-          },
-          {
-            title: {
-              en: "Morning (XL)",
-              fr: "Matin (XL)"
-            },
-            subtitle: {
-              en: "5 hours 9am-2pm",
-              fr: "5 heure 9h-14h"
-            },
-            price: "475"
+            price: "255"
           },
           {
             title: {
@@ -70,28 +64,6 @@ export default {
               fr: "7 heure 9h-16h"
             },
             price: "540"
-          },
-          {
-            title: {
-              en: "Full Day (XL)",
-              fr: "Journée (XL)"
-            },
-            subtitle: {
-              en: "8 hours 9am-5pm",
-              fr: "8 heure 9h-17h"
-            },
-            price: "595"
-          },
-          {
-            title: {
-              en: "Afternoon",
-              fr: "Après-midi"
-            },
-            subtitle: {
-              en: "3 hours 1pm-4pm",
-              fr: "3 heure 13h-16h"
-            },
-            price: "255"
           }
         ]
       }
@@ -103,23 +75,41 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/index";
 .prices {
-  color: $white;
+  color: $secondary;
+  text-align: center;
   &__items {
+    color: $black;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-left: -20px;
-    padding: 100px 0;
+    padding: 50px 0;
+    margin-top: 60px;
     &_item {
+      background-color: $white;
+      @include rounded;
+      position: relative;
+      padding: 10px;
+      padding-top: 80px;
       width: calc(100% / 3 - 20px);
       text-align: center;
       margin: 10px 20px;
       margin-right: 0;
-      @include mq(m) {
-        width: calc(100% / 2 - 20px);
+      border-bottom: 30px solid $primaryLight;
+
+      @include transition(transform 0.3s ease);
+      &:hover {
+        transform: scale(1.1);
       }
-      @include mq(xxs) {
-        width: calc(100% - 20px);
+      @include mq(s) {
+        width: calc(100%);
+        margin-bottom: 100px;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+        &:hover {
+          transform: none;
+        }
       }
     }
   }
@@ -127,23 +117,41 @@ export default {
 
 .prices-items-item {
   &__title {
-border: 1px solid $white;
-        padding: 20px;
-        margin: 0;
+    padding: 20px;
+    @include font(36px, normal, 36px);
+    text-transform: uppercase;
+
+    margin: 0;
   }
   &__subtitle {
-    
   }
   &__price {
-    border: 1px solid $white;
-        padding: 20px;
-        margin: 0;
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    color: $white;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 10px solid $white;
+    background-color: $primaryDark;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    padding: 20px;
+    margin: 0;
   }
   &__price-devise {
-    
+    left: 0;
+    @include font(12px, normal, 16px);
+    margin-top: -35px;
+    text-transform: uppercase;
   }
   &__price-value {
-    
+    @include font(42px, bold, 36px);
+    color: $secondary;
   }
 }
 </style>

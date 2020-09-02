@@ -37,7 +37,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/index";
 .certification {
-  box-sizing: border-box;
   position: relative;
   width: 100%;
   // height: 200px;

@@ -158,7 +158,6 @@ export default {
         opacity: 0;
         z-index: 2;
         padding: 20px;
-        box-sizing: border-box;
         @include transition(
           height 0.3s ease,
           color 0.3s ease,

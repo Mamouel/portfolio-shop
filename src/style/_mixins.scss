@@ -9,7 +9,6 @@
 }
 
 @mixin avatar($size: 200px) {
-  box-sizing: border-box;
   width: $size;
   height: $size;
   border-radius: 50%;
@@ -20,7 +19,6 @@
 }
 
 @mixin avatar-layout($size: 200px) {
-  box-sizing: border-box;
   position: absolute;
   opacity: 0;
   z-index: 100;

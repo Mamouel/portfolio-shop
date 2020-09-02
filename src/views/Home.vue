@@ -19,7 +19,7 @@
     <div id="products" class="home-section home-section_grey">
       <Products :lang="lang" />
     </div>
-    <div id="prices" class="home-section home-section_primary-dark">
+    <div id="prices" class="home-section home-section_padding home-section_primary-dark">
       <Prices :lang="lang" />
     </div>
     <div
@@ -80,7 +80,6 @@ export default {
 .home {
   .home-section {
     display: flex;
-    box-sizing: border-box;
     position: relative;
     // @include mq(l) {
     //   padding: 100px 0;
@@ -97,6 +96,10 @@ export default {
     &_small-padding {
       padding-top: $sectionPadding / 2;
       padding-bottom: $sectionPadding / 2;
+    }
+    &_padding {
+      padding-top: $sectionPadding;
+      padding-bottom: $sectionPadding;
     }
     &_no-padding {
       padding: 0;
