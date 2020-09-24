@@ -52,7 +52,7 @@ export default {
           en:
             "Discover safely the backcountry terrain offered Verbier and its surroundings! From beginners to experimented riders",
           fr:
-            "Découvre en toute sécurité les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté."
+            "Découvre les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté, tout en apprenant les bases de la sécurité en montagne."
         },
         freestyle: {
           en: "Freestyle initiation for experimented riders",

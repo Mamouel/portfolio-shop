@@ -9,6 +9,7 @@
         class="btn btn__primary"
         href="https://www.verbier.ch/ete/"
         target="_blank"
+        rel="noopener noreferrer"
       >{{ text.button[lang] }}</a>
     </div>
     <div class="text-img-flex__item" :class="type + '-shadow'"></div>
@@ -47,8 +48,8 @@ export default {
             fr: "Freeride sécurisé sur Verbier et ses alentours"
           },
           {
-            en: "Snowpark",
-            fr: "Snowpark"
+            en: "Snowparks",
+            fr: "Snowparks"
           },
           {
             en: "Events",

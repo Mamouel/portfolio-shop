@@ -5,15 +5,16 @@
         v-for="(part, index) in text[lang]"
         :key="index"
         :class="index % 2 === 0 && 'orange'"
-      >{{ part }}</span>
+        >{{ part }}</span
+      >
     </h2>
     <div v-if="type !== 'main'" class="overlay"></div>
     <div v-if="type !== 'main'" class="overlay-content">
       <p>{{ text[lang] }}</p>
-      <router-link
+      <!-- <router-link
         :to="{ name: 'Home', hash: '#prices' }"
         class="btn btn__primary"
-      >{{ textLocal.button[lang] }}</router-link>
+      >{{ textLocal.button[lang] }}</router-link> -->
     </div>
     <h3 v-if="type !== 'main'">{{ title }}</h3>
   </div>
@@ -171,16 +172,20 @@ export default {
     @include transition(visibility 0.5s ease, opacity 0.5s ease);
     padding: 100px 20px 50px;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 
-    p,
-    a {
+    p {
       z-index: 13;
-      @include font(18px, normal, 24px);
-    }
-    a {
-      position: absolute;
-      bottom: 25px;
-      transform: translateX(-50%);
+      @include font(24px, normal, 28px);
+      margin: auto;
+      padding: 0 35px;
+      text-align: left;
+      @include mq(s) {
+        padding: 0;
+        @include font(16px, normal, 20px);
+      }
     }
   }
 }

@@ -32,9 +32,7 @@
       id="contact"
       class="home-section home-section_grey home-section_no-padding"
     >
-      <div class="contact">
-        <p class="contact__bg">Get in touch</p>
-      </div>
+      <Contact :lang="lang" />
     </div>
   </div>
 </template>
@@ -46,6 +44,8 @@ import Certification from "@/components/Certification.vue";
 import Teacher3 from "@/components/Teacher3.vue";
 import Partners from "@/components/Partners.vue";
 import Products from "@/components/Products.vue";
+import Contact from "@/components/Contact.vue";
+
 import TextImageFlex from "@/components/TextImageFlex.vue";
 
 export default {
@@ -70,6 +70,7 @@ export default {
     Teacher3,
     Partners,
     Products,
+    Contact,
     TextImageFlex
   }
 };
@@ -125,30 +126,4 @@ export default {
   }
 }
 
-.contact {
-  height: 230px;
-  overflow: hidden;
-  &__bg {
-    @include font(200px, 900, 130px);
-    font-family: $heading-font;
-    text-transform: uppercase;
-    position: absolute;
-    margin: 0;
-    top: 0px;
-    left: 0;
-    color: $black;
-    opacity: 0.03;
-    overflow: hidden;
-    width: 100%;
-    @include mq(xl) {
-      @include font(200px, 900, 120px);
-    }
-    @include mq(s) {
-      @include font(150px, 900, 100px);
-    }
-    @include mq(xxs) {
-      @include font(100px, 900, 70px);
-    }
-  }
-}
 </style>

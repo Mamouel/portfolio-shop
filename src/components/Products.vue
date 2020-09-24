@@ -47,36 +47,36 @@ export default {
         {
           text: {
             en:
-              "Discover safely the backcountry terrain offered Verbier and its surroundings! From beginners to experimented riders",
+              "Ski, snowboard, splitboard, ski touring, snowshoes. Discover backcountry terrain offered Verbier and its surroundings! Learn also mountain safety rules. From beginners to experimented riders",
             fr:
-              "Découvre en toute sécurité les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté."
+              "Ski, snowboard, splitboard, randonnée, raquettes. Découvre les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté, tout en apprenant les bases de la sécurité en montagne. "
           },
           title: "Freeride",
           type: "freeride"
         },
         {
           text: {
-            en: "Freestyle initiation for experimented riders",
+            en: "Freestyle initiation for experimented riders, from 10 years old",
             fr:
-              "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+              "Initiation freestyle pour les riders de niveau intermédiaire à expert. A partir de 10 ans"
           },
           title: "Freestyle",
           type: "freestyle"
         },
         {
           text: {
-            en: "Freestyle initiation for experimented riders",
+            en: "Enjoy your stay in Verbier only with your family or your friends. A la carte organization depending your own group (6 people max)",
             fr:
-              "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+              "Profite de ton séjour à Verbier exclusivement avec ta famille ou tes amis. Planning à la carte selon le rythme de chacun (6 personnes max)"
           },
           title: "Family trip",
           type: "family"
         },
         {
           text: {
-            en: "Freestyle initiation for experimented riders",
+            en: "We organize your trip depending on your group (size & level) to make it successful",
             fr:
-              "Initiation freestyle pour les riders de niveau intermédiaire à expert."
+              "Nous organisons votre séjour selon la taille de votre groupe et des différents niveaux pour que votre team building soit un succès!"
           },
           title: "Team building",
           type: "team"
