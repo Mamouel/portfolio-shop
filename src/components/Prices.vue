@@ -72,7 +72,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_colors";
+@import "@/style/_mixins";
+
 .prices {
   color: $secondary;
   text-align: center;
@@ -95,11 +97,6 @@ export default {
       margin: 10px 20px;
       margin-right: 0;
       border-bottom: 30px solid $primaryLight;
-
-      @include transition(transform 0.3s ease);
-      &:hover {
-        transform: scale(1.1);
-      }
       @include mq(s) {
         width: calc(100%);
         margin-bottom: 100px;
@@ -119,10 +116,7 @@ export default {
     padding: 20px;
     @include font(36px, normal, 36px);
     text-transform: uppercase;
-
     margin: 0;
-  }
-  &__subtitle {
   }
   &__price {
     position: absolute;

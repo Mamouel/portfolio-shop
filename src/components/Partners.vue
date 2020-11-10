@@ -16,7 +16,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_colors";
+
 .partners {
   &__ctn {
     display: flex;

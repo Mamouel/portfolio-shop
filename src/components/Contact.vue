@@ -41,7 +41,9 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_mixins";
+@import "@/style/_colors";
+@import "@/style/_fonts";
 
 .contact {
   height: 230px;

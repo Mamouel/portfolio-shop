@@ -66,7 +66,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_mixins";
+@import "@/style/_colors";
+
 .product-sumary {
   text-align: center;
   color: $white;

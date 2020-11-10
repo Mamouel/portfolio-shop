@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_colors";
 .product {
   text-align: center;
   color: $white;

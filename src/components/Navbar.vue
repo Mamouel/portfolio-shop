@@ -108,7 +108,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_mixins";
+@import "@/style/_colors";
+@import "@/style/_variables";
+@import "@/style/_fonts";
+
 .navbar {
   background-color: $transparentColor;
   height: $navbarHeight;

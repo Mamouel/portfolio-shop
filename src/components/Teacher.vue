@@ -58,7 +58,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_mixins";
+@import "@/style/_colors";
+
 .teacher {
   // h2 {
   //   text-align: right;

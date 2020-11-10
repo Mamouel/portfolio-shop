@@ -36,7 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/style/index";
+@import "@/style/_mixins";
+@import "@/style/_colors";
 .footer {
   background-color: $greyLight;
   &__wrapper {
