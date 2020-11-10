@@ -97,7 +97,10 @@ export default {
       @include font(60px, 900, 50px);
       // @include font(80px, 900, 70px);
       @include mq(m) {
-        @include font(20px, 900, 20px);
+        @include font(40px, 900, 40px);
+      }
+      @include mq(s) {
+        @include font(30px, 900, 30px);
       }
       @include mq(ph) {
         text-align: center;

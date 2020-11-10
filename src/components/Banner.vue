@@ -221,6 +221,23 @@ export default {
         fill: $whitish;
       }
     }
+    @include mq(xxs) {
+      margin-left: 11px;
+      button {
+        padding: 5px 10px;
+      }
+      svg {
+        margin-left: 10px;
+        height: 28px;
+        width: 28px;
+        fill: #3b5998;
+        cursor: pointer;
+        @include transition(fill 0.3s ease);
+        &:hover {
+          fill: $whitish;
+        }
+      }
+    }
   }
   .scroll-down-btn {
     position: absolute;
@@ -237,9 +254,15 @@ export default {
     &:hover {
       background-color: $secondaryLight;
     }
-    @include mq(xxs) {
-      bottom: 100px;
+    @include mq(xs) {
+      bottom: 80px;
+      width: 30px;
+      height: 30px;
     }
+    @include mq(ph) {
+      display: none;
+    }
+
     svg {
       width: 40px;
       height: 40px;

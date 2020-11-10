@@ -37,8 +37,8 @@ export default {
               fr: "Matin"
             },
             subtitle: {
-              en: "3 hours 9am-12pm",
-              fr: "3 heures 9h-12h"
+              en: "3 hours (9am-12pm)",
+              fr: "3 heures (9h-12h)"
             },
             price: "315"
           },
@@ -48,8 +48,8 @@ export default {
               fr: "Après-midi"
             },
             subtitle: {
-              en: "3 hours 1pm-4pm",
-              fr: "3 heures 13h-16h"
+              en: "3 hours (1pm-4pm)",
+              fr: "3 heures (13h-16h)"
             },
             price: "255"
           },
@@ -59,8 +59,8 @@ export default {
               fr: "Journée"
             },
             subtitle: {
-              en: "7 hours 9am-4pm",
-              fr: "7 heures 9h-16h"
+              en: "7 hours (9am-4pm)",
+              fr: "7 heures (9h-16h)"
             },
             price: "540"
           }
@@ -117,6 +117,15 @@ export default {
     @include font(36px, normal, 36px);
     text-transform: uppercase;
     margin: 0;
+    @include mq(xl) {
+      @include font(30px, normal, 30px);
+    }
+    @include mq(l) {
+      @include font(24px, normal, 24px);
+    }
+    @include mq(l) {
+      @include font(18px, normal, 18px);
+    }
   }
   &__price {
     position: absolute;
