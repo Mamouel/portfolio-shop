@@ -96,7 +96,7 @@ export default {
     margin-bottom: 50px;
   }
   &__items {
-    padding-top: 100px;
+    padding: 100px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

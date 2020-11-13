@@ -259,7 +259,7 @@ export default {
       width: 30px;
       height: 30px;
     }
-    @include mq(ph) {
+    @include mq(xxs) {
       display: none;
     }
 
