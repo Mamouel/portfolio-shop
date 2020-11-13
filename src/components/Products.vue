@@ -18,10 +18,10 @@ import Card from "@/components/Card";
 export default {
   name: "Product",
   props: {
-    lang: String
+    lang: String,
   },
   components: {
-    Card
+    Card,
   },
   data() {
     return {
@@ -29,60 +29,63 @@ export default {
         {
           text: {
             en: ["From 4", "years old, for", "all levels"],
-            fr: ["Dès 4", "ans, pour", "tous les niveaux"]
+            fr: ["Dès 4", "ans, pour", "tous les niveaux"],
           },
-          type: "main"
+          type: "main",
         },
         {
           text: {
             en:
               "Private lesson or group of 6 people maximum, from 4 years old to whatever age",
             fr:
-              "Leçon privée individuelle ou en groupe jusqu’à 6 personnes maximum, dès 4 ans"
+              "Leçon privée individuelle ou en groupe jusqu’à 6 personnes maximum, dès 4 ans",
           },
-          title: "Lessons",
-          type: "lessons"
+          title: { en: "Lessons", fr: "Leçons" },
+          type: "lessons",
         },
         {
           text: {
             en:
               "Ski, snowboard, splitboard, ski touring, snowshoes. Discover backcountry terrain offered Verbier and its surroundings! Learn also mountain safety rules. From beginners to experimented riders",
             fr:
-              "Ski, snowboard, splitboard, randonnée, raquettes. Découvre les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté, tout en apprenant les bases de la sécurité en montagne. "
+              "Ski, snowboard, splitboard, randonnée, raquettes. Découvre les innombrables terrains hors piste qu’offrent Verbier et ses environs, du débutant au rider expérimenté, tout en apprenant les bases de la sécurité en montagne. ",
           },
-          title: "Freeride",
-          type: "freeride"
+          title: { en: "Freeride", fr: "Freeride" },
+          type: "freeride",
         },
         {
           text: {
-            en: "Freestyle initiation for experimented riders, from 10 years old",
+            en:
+              "Freestyle initiation for experimented riders, from 10 years old",
             fr:
-              "Initiation freestyle pour les riders de niveau intermédiaire à expert. A partir de 10 ans"
+              "Initiation freestyle pour les riders de niveau intermédiaire à expert. A partir de 10 ans",
           },
-          title: "Freestyle",
-          type: "freestyle"
+          title: { en: "Freestyle", fr: "Freestyle" },
+          type: "freestyle",
         },
         {
           text: {
-            en: "Enjoy your stay in Verbier only with your family or your friends. A la carte organization depending your own group (6 people max)",
+            en:
+              "Enjoy your stay in Verbier only with your family or your friends. A la carte organization depending your own group (6 people max)",
             fr:
-              "Profite de ton séjour à Verbier exclusivement avec ta famille ou tes amis. Planning à la carte selon le rythme de chacun (6 personnes max)"
+              "Profite de ton séjour à Verbier exclusivement avec ta famille ou tes amis. Planning à la carte selon le rythme de chacun (6 personnes max)",
           },
-          title: "Family trip",
-          type: "family"
+          title: { en: "Family trip", fr: "Familles" },
+          type: "family",
         },
         {
           text: {
-            en: "We organize your trip depending on your group (size & level) to make it successful",
+            en:
+              "We organize your trip depending on your group (size & level) to make it successful",
             fr:
-              "Nous organisons votre séjour selon la taille de votre groupe et des différents niveaux pour que votre team building soit un succès!"
+              "Nous organisons votre séjour selon la taille de votre groupe et des différents niveaux pour que votre team building soit un succès!",
           },
-          title: "Team building",
-          type: "team"
-        }
-      ]
+          title: { en: "Team building", fr: "Team building" },
+          type: "team",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

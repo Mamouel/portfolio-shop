@@ -11,12 +11,8 @@
     <div v-if="type !== 'main'" class="overlay"></div>
     <div v-if="type !== 'main'" class="overlay-content">
       <p>{{ text[lang] }}</p>
-      <!-- <router-link
-        :to="{ name: 'Home', hash: '#prices' }"
-        class="btn btn__primary"
-      >{{ textLocal.button[lang] }}</router-link> -->
     </div>
-    <h3 v-if="type !== 'main'">{{ title }}</h3>
+    <h3 v-if="type !== 'main'">{{ title[lang] }}</h3>
   </div>
 </template>
 

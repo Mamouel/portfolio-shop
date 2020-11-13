@@ -47,12 +47,12 @@ export default {
   &__item {
     @include background;
     background-image: url("~@/assets/teacher.jpg");
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     @include mq(s) {
-      // height: 200px;
+      height: 400px;
     }
     &_overlay {
       background: linear-gradient(
@@ -62,7 +62,7 @@ export default {
       );
       background-size: cover;
       width: 100%;
-      height: 400px;
+      height: 500px;
       position: absolute;
       top: 0;
       left: 0;

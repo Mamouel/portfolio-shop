@@ -1,7 +1,7 @@
 <template>
   <div class="navbar" :class="bodyScroll ? 'navbar_scrolled' : ''">
     <div class="navbar__ctn wrapper">
-      <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" />
+      <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" @click="scrollToTop()" />
       <div class="navbar__right">
         <div class="menu-burger" @click="openMenu(!menuOpen)">
           <div class="menu-burger-btn" :class="menuOpen ? 'open' : 'closed'">
@@ -15,20 +15,31 @@
             class="lang-btn"
             @mouseover="displayLang = true"
             @mouseleave="displayLang = false"
-          >{{ lang }}</div>
+          >
+            {{ lang }}
+          </div>
           <div
             class="lang-dropdown"
             :class="displayLang ? 'open' : 'closed'"
             @mouseover="displayLang = true"
             @mouseleave="displayLang = false"
           >
-            <div class="lang-dropdown__item" @click="changeLang('en')">English</div>
-            <div class="lang-dropdown__item" @click="changeLang('fr')">Francais</div>
+            <div class="lang-dropdown__item" @click="changeLang('en')">
+              English
+            </div>
+            <div class="lang-dropdown__item" @click="changeLang('fr')">
+              Francais
+            </div>
           </div>
         </div>
       </div>
       <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
-        <router-link class="side-menu-btn" v-for="(item, index) in text" :key="index" :to="{ name: 'Home', hash: item.hash }">
+        <router-link
+          class="side-menu-btn"
+          v-for="(item, index) in text"
+          :key="index"
+          :to="{ name: 'Home', hash: item.hash }"
+        >
           <div @click="openMenu(!menuOpen)">
             <span>{{ text[index][lang] }}</span>
           </div>
@@ -43,7 +54,7 @@ export default {
   name: "Navbar",
   props: {
     lang: String,
-    menuOpen: Boolean
+    menuOpen: Boolean,
   },
   data() {
     return {
@@ -53,34 +64,34 @@ export default {
         {
           en: "Teacher",
           fr: "Prof",
-          hash: "#teacher3"
+          hash: "#teacher3",
         },
         {
           en: "Location",
           fr: "Station",
-          hash: "#location"
+          hash: "#location",
         },
         {
           en: "Lessons",
           fr: "Cours",
-          hash: "#products"
+          hash: "#products",
         },
         {
           en: "Prices",
           fr: "Prix",
-          hash: "#prices"
+          hash: "#prices",
         },
         {
           en: "Partners",
           fr: "Partenaires",
-          hash: "#partners"
+          hash: "#partners",
         },
         {
           en: "Contact",
           fr: "Contact",
-          hash: "#contact"
-        }
-      ]
+          hash: "#contact",
+        },
+      ],
     };
   },
   methods: {
@@ -96,14 +107,17 @@ export default {
     },
     openMenu(value) {
       this.$emit("toggleMenu", value);
-    }
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
-  }
+  },
 };
 </script>
 
@@ -132,6 +146,7 @@ export default {
     align-items: center;
     img {
       height: 90px;
+      cursor: pointer;
       @include mq(s) {
         padding: 0px;
         height: 60px;

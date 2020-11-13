@@ -10,7 +10,7 @@
     <div id="teacher3" class="home-section home-section_first">
       <Teacher3 :lang="lang" />
     </div>
-    <div class="home-section home-section_small-padding home-section_white">
+    <div class="home-section home-section_padding home-section_white">
       <Certification :lang="lang" />
     </div>
     <div id="location" class="home-section home-section_black">

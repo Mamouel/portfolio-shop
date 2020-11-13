@@ -52,23 +52,26 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 100%;
     margin: auto;
     @include mq(xl) {
-      width: 100%;
+      // width: 100%;
     }
     @include mq(l) {
       flex-direction: column;
       text-align: center;
     }
     &_image {
-      width: 200px;
-      min-height: 150px;
+      width: 300px;
+      min-height: 200px;
       margin-top: -10px;
       @include background;
       background-size: contain;
       background-image: url("~@/assets/aisi-orange.png");
       flex: 2;
+      @include mq(s) {
+        min-height: 150px;
+      }
     }
     &_text {
       flex: 4;
