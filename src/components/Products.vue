@@ -10,7 +10,6 @@
         :text="item.text"
       />
     </div>
-    <button class="btn btn__primary">Book</button>
   </div>
 </template>
 

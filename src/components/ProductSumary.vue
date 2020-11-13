@@ -25,7 +25,6 @@
         <h3>Freestyle</h3>
       </div>
     </div>
-    <button class="btn btn__primary">Book</button>
   </div>
 </template>
 
