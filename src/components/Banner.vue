@@ -218,7 +218,7 @@ export default {
       cursor: pointer;
       @include transition(fill 0.3s ease);
       &:hover {
-        fill: $whitish;
+        fill: #20345f;
       }
     }
     @include mq(xxs) {
@@ -227,15 +227,8 @@ export default {
         padding: 5px 10px;
       }
       svg {
-        margin-left: 10px;
         height: 28px;
         width: 28px;
-        fill: #3b5998;
-        cursor: pointer;
-        @include transition(fill 0.3s ease);
-        &:hover {
-          fill: $whitish;
-        }
       }
     }
   }

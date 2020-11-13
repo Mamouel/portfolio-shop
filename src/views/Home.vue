@@ -85,18 +85,6 @@ export default {
   .home-section {
     display: flex;
     position: relative;
-    // @include mq(l) {
-    //   padding: 100px 0;
-    // }
-    // @include mq(s) {
-    //   padding: 50px 0;
-    // }
-    // @include mq(xxs) {
-    //   padding: 15px 0;
-    // }
-    // &_first {
-    //   padding-top: 200px;
-    // }
     &_small-padding {
       padding-top: $sectionPadding / 2;
       padding-bottom: $sectionPadding / 2;

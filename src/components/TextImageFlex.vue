@@ -187,6 +187,7 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: flex-start;
       @include mq(m) {
         width: 100%;
       }
@@ -219,7 +220,7 @@ export default {
         }
       }
       a {
-        margin-left: auto;
+        width: auto;
         @include mq(xxs) {
           margin: 20px auto 0 auto;
         }
