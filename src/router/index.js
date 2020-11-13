@@ -8,8 +8,9 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
-  }
+    component: Home,
+  },
+  { path: "*", redirect: "/" },
 ];
 
 const router = new VueRouter({
@@ -21,8 +22,8 @@ const router = new VueRouter({
     if (to.hash) {
       return {
         selector: to.hash,
-        behavior: "smooth"
-      }
+        behavior: "smooth",
+      };
       // return window.scrollTo({
       //   top: document.querySelector(to.hash).offsetTop - 100,
       //   behavior: "smooth",
@@ -30,7 +31,7 @@ const router = new VueRouter({
     } else {
       return { x: 0, y: 0 };
     }
-  }
+  },
 });
 
 export default router;
