@@ -1,27 +1,27 @@
 <template>
   <div class="product wrapper">
-    <div class="product__items" data-aos="fade" data-aos-once="true">
+    <router-view></router-view>
+    <!-- <div class="product__items" data-aos="fade" data-aos-once="true">
       <Card
         v-for="(item, index) in items"
         :key="index"
-        :lang="lang"
+        :lang="getLang"
         :type="item.type"
         :title="item.title"
         :text="item.text"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import Card from "@/components/Card";
+import { mapGetters } from "vuex";
+
+// import Card from "@/components/Card";
 export default {
   name: "Product",
-  props: {
-    lang: String,
-  },
   components: {
-    Card,
+    // Card,
   },
   data() {
     return {
@@ -86,6 +86,9 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapGetters("lang", ["getLang", "getStateLoading"]),
+  }
 };
 </script>
 

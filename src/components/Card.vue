@@ -20,7 +20,7 @@
 export default {
   name: "Card",
   props: {
-    title: String,
+    title: Object,
     lang: String,
     text: Object,
     type: String
@@ -92,25 +92,25 @@ export default {
       }
     }
   }
-  &.lessons {
-    background-image: url("~@/assets/lesson.jpg");
-  }
+  // &.lessons {
+  //   background-image: url("~@/assets/lesson.jpg");
+  // }
 
-  &.freeride {
-    background-image: url("~@/assets/freeride6.jpg");
-  }
+  // &.freeride {
+  //   background-image: url("~@/assets/freeride6.jpg");
+  // }
 
-  &.freestyle {
-    background-image: url("~@/assets/freestyle.jpg");
-  }
+  // &.freestyle {
+  //   background-image: url("~@/assets/freestyle.jpg");
+  // }
 
-  &.family {
-    background-image: url("~@/assets/family.jpg");
-  }
+  // &.family {
+  //   background-image: url("~@/assets/family.jpg");
+  // }
 
-  &.team {
-    background-image: url("~@/assets/group3.jpg");
-  }
+  // &.team {
+  //   background-image: url("~@/assets/group3.jpg");
+  // }
 
   &:hover {
     .overlay {

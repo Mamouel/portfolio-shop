@@ -108,7 +108,7 @@ export default {
     }
     &_image {
       @include background;
-      background-image: url("~@/assets/banner2.jpg");
+      // background-image: url("~@/assets/banner2.jpg");
       height: auto;
       padding: 0;
       min-height: 600px;
@@ -139,7 +139,7 @@ export default {
       margin-top: 50px;
     }
     &.first-image {
-      background-image: url("~@/assets/banner4.jpg");
+      // background-image: url("~@/assets/banner4.jpg");
       right: 0;
       width: 100%;
       margin-left: -200px;
@@ -173,7 +173,7 @@ export default {
     &.second-image {
       position: absolute;
       z-index: 2;
-      background-image: url("~@/assets/banner4.jpg");
+      // background-image: url("~@/assets/banner4.jpg");
       right: 0;
       width: 60%;
       // margin-right: 100px;
@@ -232,7 +232,7 @@ export default {
     &.third-image {
       // position: absolute;
       z-index: 2;
-      background-image: url("~@/assets/station.jpg");
+      // background-image: url("~@/assets/station.jpg");
       right: 0;
       width: 50%;
       // margin-right: 100px;

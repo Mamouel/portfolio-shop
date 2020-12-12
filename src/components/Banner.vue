@@ -1,81 +1,7 @@
 <template>
-  <div class="banner" :class="type">
-    <div class="banner__wrapper wrapper">
-      <h1
-        data-aos="fade-down"
-        data-aos-offset="50"
-        data-aos-delay="50"
-        data-aos-duration="2000"
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="true"
-        data-aos-anchor-placement="top-center"
-        class="banner__title"
-        :class="type"
-      >
-        <span>{{ title }}</span>
-        <span class="banner__title_opt">{{ titleOpt }}</span>
-      </h1>
-      <p
-        class="banner__subtitle"
-        data-aos="fade"
-        data-aos-offset="50"
-        data-aos-delay="500"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-      >
-        {{ subtitle }}
-      </p>
-      <div class="banner__contact">
-        <button
-          v-if="type === 'home'"
-          class="btn btn__primary"
-          @click="scrollToBottom"
-        >
-          {{ text.bookBtn[lang] }}
-        </button>
-        <a
-          href="https://www.facebook.com/nikodod"
-          target="_blank"
-          rel="nooponer noreferrer"
-        >
-          <svg
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            viewBox="0 0 60.734 60.733"
-            style="enable-background:new 0 0 60.734 60.733;"
-            xml:space="preserve"
-          >
-            <g>
-              <path
-                d="M57.378,0.001H3.352C1.502,0.001,0,1.5,0,3.353v54.026c0,1.853,1.502,3.354,3.352,3.354h29.086V37.214h-7.914v-9.167h7.914
-      v-6.76c0-7.843,4.789-12.116,11.787-12.116c3.355,0,6.232,0.251,7.071,0.36v8.198l-4.854,0.002c-3.805,0-4.539,1.809-4.539,4.462
-      v5.851h9.078l-1.187,9.166h-7.892v23.52h15.475c1.852,0,3.355-1.503,3.355-3.351V3.351C60.731,1.5,59.23,0.001,57.378,0.001z"
-              />
-            </g>
-          </svg>
-        </a>
-      </div>
-      <button class="btn scroll-down-btn" @click="scrollDown()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="feather feather-chevron-down"
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
+  <div class="banner" :class="type" :style="{ backgroundImage: `url(${image})` }">
+    <div class="banner__wrapper">
+
     </div>
   </div>
 </template>
@@ -86,19 +12,13 @@ export default {
   data() {
     return {
       text: {
-        bookBtn: {
-          en: "Contact",
-          fr: "Contact"
-        }
       }
     };
   },
   props: {
-    title: String,
-    titleOpt: String,
-    subtitle: String,
     lang: String,
-    type: String
+    type: String,
+    image: String
   },
   methods: {
     scrollDown() {
@@ -121,13 +41,15 @@ export default {
 
 .banner {
   @include background;
-  background-position: right;
+  background-position: center;
   background-color: $white;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   &.home {
-    background-image: url("~@/assets/banner2.jpg");
+    background-image: url("~@/assets/clothing-store-984396_640.jpg");
+    
     height: 100vh;
     @include mq(xxs) {
       height: 90vh;
@@ -136,6 +58,10 @@ export default {
   }
   &.page {
     height: 500px;
+    @include mq(s) {
+      height: 200px;
+    }
+
   }
   &__wrapper {
     // padding: 50px 0;

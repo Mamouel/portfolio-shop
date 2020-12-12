@@ -1,46 +1,39 @@
 <template>
-  <div id="app">
+  <div id="app" :class="getMenuOpen ? 'menuOpen' : 'menuClosed'">
     <Navbar
       :lang="lang"
-      :menuOpen="menuOpen"
-      @newLang="setLang"
-      @toggleMenu="setMenu"
-      :class="menuOpen ? 'menuOpen' : 'menuClosed'"
+      :class="getMenuOpen ? 'menuOpen' : 'menuClosed'"
     />
     <router-view
       :lang="lang"
       style="width: 100%"
-      :class="menuOpen ? 'menuOpen' : 'menuClosed'"
-      @click.native="menuOpen = false"
+      :class="getMenuOpen ? 'menuOpen' : 'menuClosed'"
     />
-    <Footer :lang="lang" :class="menuOpen ? 'menuOpen' : 'menuClosed'" />
+    <Footer :lang="lang" :class="getMenuOpen ? 'menuOpen' : 'menuClosed'" />
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
-
 export default {
   name: "Home",
   components: {
     Navbar,
-    Footer
+    Footer,
   },
   data() {
     return {
       lang: "en",
-      menuOpen: false
+      menuOpen: false,
     };
   },
-  methods: {
-    setLang(lang) {
-      this.lang = lang;
-    },
-    setMenu(value) {
-      this.menuOpen = value;
-    }
-  }
+  computed: {
+    ...mapGetters("menu", ["getMenuOpen", "getStateLoading"]),
+    ...mapGetters("lang", ["getLang", "getStateLoading"]),
+
+  },
 };
 </script>
 
@@ -49,23 +42,19 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
+  // height: 100%;
   padding: 0;
   margin: 0;
   background-color: $white;
   width: 100%;
+  overflow-x: hidden;
 
-  .menuOpen {
-    @include transition(transform 0.5s ease-in);
-    transform: translateX(-300px);
-    @include mq(xs) {
-      transform: translateX(-100vw);
-    }
-  }
-  .menuClosed {
-    @include transition(transform 0.2s ease, background-color 0.3s ease);
-  }
+  &.menuOpen {
 
+      overflow-y: hidden;
+      position: fixed;
+    
+  }
   a {
     // font-weight: bold;
     text-decoration: none;
@@ -74,11 +63,12 @@ export default {
     @include transition(
       color 0.2s ease,
       transform 0.3s ease,
-      background-color 0.3s ease
+      background-color 0.3s ease,
+      border 0.3s ease
     );
-    &:hover {
-      color: $primary;
-    }
+    // &:hover {
+    //   color: $greyMed;
+    // }
   }
 }
 </style>

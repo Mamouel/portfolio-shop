@@ -1,100 +1,113 @@
 <template>
   <div class="navbar" :class="bodyScroll ? 'navbar_scrolled' : ''">
+    <div
+      class="navbar__ctn navbar__ctn_infos wrapper"
+    >
+      <p class="navbar__ctn_toplink">pays</p>
+      <p class="navbar__ctn_toplink">téléphone</p>
+      <p class="navbar__ctn_toplink">points de vente</p>
+      <p class="navbar__ctn_toplink">besoin d'aide?</p>
+    </div>
     <div class="navbar__ctn wrapper">
-      <img src="@/assets/logo-v2.png" alt="ride and smile snowsports" @click="scrollToTop()" />
-      <div class="navbar__right">
-        <div class="menu-burger" @click="openMenu(!menuOpen)">
-          <div class="menu-burger-btn" :class="menuOpen ? 'open' : 'closed'">
-            <span class="line top"></span>
-            <span class="line middle"></span>
-            <span class="line bottom"></span>
-          </div>
-        </div>
-        <div class="lang">
-          <div
-            class="lang-btn"
-            @mouseover="displayLang = true"
-            @mouseleave="displayLang = false"
-          >
-            {{ lang }}
-          </div>
-          <div
-            class="lang-dropdown"
-            :class="displayLang ? 'open' : 'closed'"
-            @mouseover="displayLang = true"
-            @mouseleave="displayLang = false"
-          >
-            <div class="lang-dropdown__item" @click="changeLang('en')">
-              English
-            </div>
-            <div class="lang-dropdown__item" @click="changeLang('fr')">
-              Francais
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="navbar__links" :class="menuOpen ? 'open' : 'closed'">
-        <router-link
-          class="side-menu-btn"
-          v-for="(item, index) in text"
+      <h2 id="logo" class="navbar__ctn_logo" @click="handleMenu(true, 0)">
+        NICE SHOP
+      </h2>
+      <div class="navbar__ctn_links">
+        <div
+          class="link link_main"
+          @click="handleMenu(true, index, link)"
+          v-for="(link, index) in links"
           :key="index"
-          :to="{ name: 'Home', hash: item.hash }"
         >
-          <div @click="openMenu(!menuOpen)">
-            <span>{{ text[index][lang] }}</span>
-          </div>
-        </router-link>
+          <span>{{ link[lang] }}</span>
+        </div>
       </div>
+    </div>
+    <div
+      class="menu"
+      :class="[
+        getMenuSelected === index ? 'open' : 'closed',
+        subPanelSelected.length && 'sub',
+      ]"
+      v-for="(menu, index) in menus"
+      :key="index"
+    >
+      <div
+        v-if="getMenuOpen"
+        class="menu__close"
+        @click="handleMenu(false, null)"
+      >
+        x
+      </div>
+      <div v-if="getMenuSelected === index" class="menu__pannel">
+        <p
+          class="menu__pannel_link"
+          v-for="(link, index) in menu.firstPanel.links"
+          :key="index"
+          @click="subPanelSelected = link.id"
+        >
+          {{ link[lang] }}
+        </p>
+      </div>
+      <transition name="fade">
+        <div v-if="getMenuSelected === index" class="menu__pannel menu__pannel_subpannel">
+          <p class="mobile" @click="subPanelSelected = ''">back</p>
+          <router-link
+            class="menu__pannel_link"
+            v-for="(link, index) in menu.secondPanel[subPanelSelected]"
+            :key="index"
+            :to="link.to"
+          >
+            {{ link[lang] }}
+          </router-link>
+        </div>
+      </transition>
+
+      <transition name="fade">
+        <div
+          class="menu__pannel menu__pannel_img"
+          :style="{ backgroundImage: `url(${menu.img})` }"
+          v-if="getMenuSelected === index"
+        ></div>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+import menus from "@/utils/menu";
+import links from "@/utils/navbarLinks";
+
 export default {
   name: "Navbar",
   props: {
     lang: String,
-    menuOpen: Boolean,
   },
   data() {
     return {
       bodyScroll: false,
-      displayLang: false,
-      text: [
-        {
-          en: "Teacher",
-          fr: "Prof",
-          hash: "#teacher3",
-        },
-        {
-          en: "Location",
-          fr: "Station",
-          hash: "#location",
-        },
-        {
-          en: "Lessons",
-          fr: "Cours",
-          hash: "#products",
-        },
-        {
-          en: "Prices",
-          fr: "Prix",
-          hash: "#prices",
-        },
-        {
-          en: "Partners",
-          fr: "Partenaires",
-          hash: "#partners",
-        },
-        {
-          en: "Contact",
-          fr: "Contact",
-          hash: "#contact",
-        },
-      ],
+      panelSelected: null,
+      subPanelSelected: "",
+      menus: menus,
+      links: links,
     };
   },
   methods: {
+    ...mapActions("menu", ["toggleMenu"]),
+    handleMenu(value, index, link) {
+      const payload = {
+        value,
+        index,
+      };
+      this.toggleMenu(payload);
+      if (link && window.innerWidth > 600) {
+        this.subPanelSelected = link.sub;
+      } else {
+        this.subPanelSelected = "";
+      }
+      console.log(this.subPanelSelected);
+    },
     handleScroll() {
       if (window.scrollY > 0) {
         this.bodyScroll = true;
@@ -111,6 +124,13 @@ export default {
     scrollToTop() {
       window.scrollTo(0, 0);
     },
+  },
+  computed: {
+    ...mapGetters("menu", [
+      "getMenuOpen",
+      "getMenuSelected",
+      "getStateLoading",
+    ]),
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
@@ -130,32 +150,61 @@ export default {
 .navbar {
   background-color: $transparentColor;
   height: $navbarHeight;
-  position: fixed;
   width: 100%;
+  position: relative;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  @include transition(background-color 1.3s ease);
+  @include font(13px, normal, 16px);
+  @include transition(background-color 0.1s ease);
+  border-bottom: 1px solid $greyLight;
   @include mq(s) {
-    height: $navbarHeightMobile;
+    // height: $navbarHeightMobile;
   }
   &__ctn {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    img {
-      height: 90px;
+    width: 100%;
+    &_infos {
+      background-color: $greyLight;
+      // height: 40px;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    &_toplink {
+      padding: 0 20px;
+      margin-left: -20px;
       cursor: pointer;
-      @include mq(s) {
-        padding: 0px;
-        height: 60px;
+      &:last-child {
+        margin-left: auto;
       }
+    }
+    &_logo {
+      @include font(25px, bold, 25px);
+      white-space: nowrap;
+      padding-right: 25px;
+    }
+    &_links {
+      z-index: 100;
+      // height: 72px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      width: 100%;
+      // @include mq(xs) {
+      //   position: absolute;
+      //   top: -100vh;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 100vh;
+      // }
     }
   }
 
   &_scrolled {
-    background-color: $greyLight;
+    background-color: $white;
     @include box-shadow(
       0 0 0 1px rgba(63, 63, 68, 0.05),
       0 1px 3px 0 rgba(63, 63, 68, 0.15)
@@ -166,162 +215,96 @@ export default {
     display: flex;
     align-items: center;
   }
+}
 
-  &__links {
-    font-family: $heading-font;
-    z-index: 100;
+.menu {
+  display: flex;
+  position: absolute;
+  top: 112px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: white;
+  overflow-x: hidden;
+  @include transition(transform 0.3s ease);
+
+  @include mq(m) {
+    flex-wrap: wrap;
+  }
+  @include mq(xs) {
+    width: 200%;
+  }
+  &.sub {
+    @include mq(xs) {
+      transform: translate(-100vw);
+    }
+  }
+  &.open {
+    height: calc(100vh - 112px);
+    z-index: 1001;
+    // opacity: 1;
+    // visibility: visible;
+  }
+  &.close {
+    height: 0;
+    // opacity: 0;
+    // visibility: hidden;
+  }
+  &__pannel {
+    width: 30%;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: absolute;
-    right: -300px;
-    top: 0;
-    width: 300px;
-    background-color: $greyLight;
-    height: 100vh;
-    @include box-shadow;
+    padding: 50px;
+    @include mq(m) {
+      min-width: 50%;
+    }
+    &_subpannel {
+      background-color: $greyLight;
+    }
+    &_link {
+      font-family: $heading-font;
+      @include font(16px, normal, 20px);
+      padding: 8px 0;
+      cursor: pointer;
+      @include transition(color 0.3s ease);
+      color: $black;
+      &:hover {
+        color: $greyMed;
+      }
+    }
+    &_img {
+      @include background;
+      @include mq(m) {
+        width: 100%;
+        flex: 2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        min-height: 400px;
+        background-size: cover;
+        background-position: top;
+
+
+      }
+    }
     @include mq(xs) {
       width: 100vw;
-      right: -100vw;
-    }
-    .side-menu-btn {
-      @include font(34px, 900, 30px);
-      color: $black;
-      border-bottom: 1px solid $black;
-      width: 100%;
-      padding: 10px;
-      a {
-        color: $black;
-      }
-    }
-
-    &.open {
-      @include transition(transform 0s ease-in);
-      .menu-burger-btn {
-        .line {
-          background-color: $primaryDark;
-        }
-      }
-    }
-
-    &.closed {
-      @include transition(transform 2s ease);
     }
   }
-
-  .menu-burger {
-    background: $transparentColor;
-    z-index: 110;
-    display: flex;
-    border-radius: 50%;
-    position: relative;
-    padding: 15px;
-    cursor: pointer;
-    margin-right: 30px;
-    @include transition(background-color 0.3s ease);
-    @include mq(s) {
-      padding: 10px;
-    }
-    @include mq(xs) {
-      margin-right: 0;
-    }
-    .menu-burger-btn {
-      width: 30px;
-      height: 30px;
-      position: relative;
-
-      &.open {
-        .line {
-          background-color: $primaryDark;
-        }
-      }
-
-      @include mq(s) {
-        width: 25px;
-        height: 25px;
-      }
-
-      .line {
-        position: absolute;
-        height: 6px;
-        width: 100%;
-        background-color: $black;
-        border-radius: 8px;
-        @include transition(all 0.3s cubic-bezier(0.26, 0.1, 0.27, 1.55));
-
-        @include mq(s) {
-          height: 5px;
-        }
-
-        &.top {
-          top: 0;
-          transform: rotate(0deg);
-        }
-
-        &.middle {
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        &.bottom {
-          bottom: 0;
-        }
-      }
-    }
-
-    .menu-burger-btn.open {
-      .top {
-        transform: rotate(45deg);
-        top: 40%;
-      }
-
-      .middle,
-      .bottom {
-        transform: rotate(-45deg);
-        top: 40%;
-      }
-    }
+  &__close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 25px;
+    background-color: $white;
   }
-  .lang {
-    position: relative;
-    height: 60px;
-    // width: 60px;
-    font-family: $heading-font;
-
-    .lang-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $transparentColor;
-      @include font(16px, bold, 20px);
-      padding: 20px;
-      text-transform: capitalize;
-      cursor: pointer;
-    }
-    .lang-dropdown {
-      position: absolute;
-      background-color: $white;
-      opacity: 0;
-      visibility: hidden;
-      @include transition(opacity 0.3s ease, visibility 0.3s ease);
-
-      &.open {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      &__item {
-        // width: 50px;
-        padding: 10px 15px;
-        cursor: pointer;
-        @include transition(color 0.3s ease, background-color 0.3s ease);
-
-        &:hover {
-          background-color: $primary;
-          color: $white;
-        }
-      }
-    }
-  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

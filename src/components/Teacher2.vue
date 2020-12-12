@@ -105,7 +105,7 @@ export default {
       @include background;
       background-color: $greyMed;
       &.teacher2-image {
-        background-image: url("~@/assets/teacher.jpg");
+        // background-image: url("~@/assets/teacher.jpg");
         min-height: 500px;
         // position: absolute;
         width: 100%;
@@ -117,7 +117,7 @@ export default {
       &.certif-image {
         height: 250px;
         width: 300px;
-        background-image: url("~@/assets/aisi-logo.png");
+        // background-image: url("~@/assets/aisi-logo.png");
         background-size: contain;
         position: absolute;
         background-color: $white;

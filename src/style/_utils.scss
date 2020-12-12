@@ -1,12 +1,62 @@
 .wrapper {
-    margin: auto;
-    padding: 0 100px;
-    width: 100%;
-    max-width: 2400px;
-    @include mq(m) {
-      width: 100%!important;
-      padding-left: 15px!important;
-      padding-right: 15px!important;
+  margin: auto;
+  padding: 0 50px;
+  width: 100%;
+  max-width: 2400px;
+  @include mq(m) {
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+.mobile {
+  display: none !important;
+  @include mq(xs) {
+    display: block !important;
+  }
+}
+
+.link {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: $heading-font;
+  color: $black;
+  padding: 20px 10px;
+  cursor: pointer;
+  @include transition(color 0.3s ease, text-decoration 0.3s ease);
+  &:hover {
+    color: $greyMed;
+  }
+  &_white {
+    color: $white;
+  }
+  &_footer {
+    padding: 25px 15px;
+    padding-left: 0;
+  }
+  &_main {
+    display: inline-block;
+    &:hover::after {
+      width: 100%;
+    }
+    &::after {
+      content: '';
+      width: 0px;
+      height: 1px;
+      display: block;
+      background: black;
+      @include transition(width 0.3s ease)
     }
   }
-  
+}
+
+.un:hover::after {
+  width: 100%;
+}
+
+.desktop-only {
+  @include mq(s) {
+    display: none !important;
+  }
+}

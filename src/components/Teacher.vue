@@ -104,7 +104,7 @@ export default {
       @include background;
       background-color: $greyMed;
       &.teacher-image {
-        background-image: url("~@/assets/teacher.jpg");
+        // background-image: url("~@/assets/teacher.jpg");
         margin-right: 15px;
       width: 60%;
         @include mq(m) {
@@ -113,7 +113,7 @@ export default {
         }
       }
       &.certif-image {
-        background-image: url("~@/assets/aisi-logo.png");
+        // background-image: url("~@/assets/aisi-logo.png");
         margin-left: 15px;
         background-size: contain;
         background-color: $white;

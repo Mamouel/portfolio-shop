@@ -1,6 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Products from "../views/Products.vue";
+import Product from "@/components/ProductSumary.vue";
+import Teacher from "@/components/Teacher.vue";
+
+
+
 
 Vue.use(VueRouter);
 
@@ -9,6 +15,34 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/men/",
+    component: Products,
+    children: [
+      {
+        path: "bags",
+        component: Product,
+      },
+      {
+        path: "shoes",
+        component: Teacher,
+      },
+    ],
+  },
+  {
+    path: "/women",
+    component: Products,
+    children: [
+      {
+        path: "handbags",
+        component: Product,
+      },
+      {
+        path: "shoes",
+        component: Teacher,
+      },
+    ],
   },
   { path: "*", redirect: "/" },
 ];
@@ -24,10 +58,6 @@ const router = new VueRouter({
         selector: to.hash,
         behavior: "smooth",
       };
-      // return window.scrollTo({
-      //   top: document.querySelector(to.hash).offsetTop - 100,
-      //   behavior: "smooth",
-      // });
     } else {
       return { x: 0, y: 0 };
     }

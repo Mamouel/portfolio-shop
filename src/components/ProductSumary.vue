@@ -113,17 +113,17 @@ export default {
         width: calc(100% - 10px);
       }
 
-      &.lessons {
-        background-image: url("~@/assets/lesson.jpg");
-      }
+      // &.lessons {
+      //   background-image: url("~@/assets/lesson.jpg");
+      // }
 
-      &.freeride {
-        background-image: url("~@/assets/lesson2.jpg");
-      }
+      // &.freeride {
+      //   background-image: url("~@/assets/lesson2.jpg");
+      // }
 
-      &.freestyle {
-        background-image: url("~@/assets/freestyle2.jpg");
-      }
+      // &.freestyle {
+      //   background-image: url("~@/assets/freestyle2.jpg");
+      // }
 
       &:hover {
         .overlay {

@@ -2,77 +2,69 @@
   <div class="home">
     <Banner
       :lang="lang"
-      type="home"
-      title="Ride &amp; Smile"
-      titleOpt="Snowsports"
-      :subtitle="text.subtitle[lang]"
+      type="page"
+      :image="bannerImage"
     />
-    <div id="teacher3" class="home-section home-section_first">
-      <Teacher3 :lang="lang" />
-    </div>
-    <div class="home-section home-section_padding home-section_white">
-      <Certification :lang="lang" />
-    </div>
-    <div id="location" class="home-section home-section_black">
-      <TextImageFlex :lang="lang" type="third" />
-    </div>
-    <div id="products" class="home-section home-section_grey">
-      <Products :lang="lang" />
-    </div>
-    <div id="prices" class="home-section home-section_padding home-section_primary-dark">
-      <Prices :lang="lang" />
-    </div>
-    <div
-      id="partners"
-      class="home-section home-section_small-padding home-section_white"
-    >
-      <Partners :lang="lang" />
-    </div>
-    <div
-      id="contact"
-      class="home-section home-section_grey home-section_no-padding"
-    >
-      <Contact :lang="lang" />
-    </div>
+    <TitleText
+      :lang="lang"
+      :title="titleTextOne.title[lang]"
+      :subtitle="titleTextOne.subtitle[lang]"
+      :buttonOne="titleTextOne.buttonOne[lang]"
+      :buttonTwo="titleTextOne.buttonTwo[lang]"
+    />
+    <TripleCases :lang="lang" />
+    <TitleText
+      :lang="lang"
+      :title="titleTextOne.title[lang]"
+      :subtitle="titleTextOne.title[lang]"
+      :buttonOne="titleTextOne.title[lang]"
+      :buttonTwo="titleTextOne.title[lang]"
+    />
+    <TripleFlex :lang="lang"/>
   </div>
 </template>
 
 <script>
 import Banner from "@/components/Banner.vue";
-import Prices from "@/components/Prices.vue";
-import Certification from "@/components/Certification.vue";
-import Teacher3 from "@/components/Teacher3.vue";
-import Partners from "@/components/Partners.vue";
-import Products from "@/components/Products.vue";
-import Contact from "@/components/Contact.vue";
-
-import TextImageFlex from "@/components/TextImageFlex.vue";
+import TitleText from "@/components/TitleText.vue";
+import TripleCases from "@/components/TripleCases.vue";
+import TripleFlex from "@/components/TripleFlex.vue";
+import BannerImage from "@/assets/model-5085917_640.jpg";
 
 export default {
   name: "Home",
   props: {
-    lang: String
+    lang: String,
   },
   data() {
     return {
-      text: {
+      titleTextOne: {
+        title: {
+          en: "New collection",
+          fr: "Nouvelle collection",
+        },
         subtitle: {
-          en: "Ski, snowboard, freeride, freestyle",
-          fr: "Ski, snowboard, freeride, freestyle"
-        }
-      }
+          en: "By...",
+          fr: "Par...",
+        },
+        buttonOne: {
+          en: "Discover",
+          fr: "Découvrir",
+        },
+        buttonTwo: {
+          en: "Discover",
+          fr: "Découvrir",
+        },
+      },
+      bannerImage: BannerImage,
     };
   },
   components: {
     Banner,
-    Prices,
-    Certification,
-    Teacher3,
-    Partners,
-    Products,
-    Contact,
-    TextImageFlex
-  }
+    TitleText,
+    TripleCases,
+    TripleFlex,
+  },
 };
 </script>
 
@@ -116,5 +108,4 @@ export default {
     }
   }
 }
-
 </style>

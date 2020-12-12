@@ -67,7 +67,7 @@ export default {
       margin-top: -10px;
       @include background;
       background-size: contain;
-      background-image: url("~@/assets/aisi-orange.png");
+      // background-image: url("~@/assets/aisi-orange.png");
       flex: 2;
       @include mq(s) {
         min-height: 150px;

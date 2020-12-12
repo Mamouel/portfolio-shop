@@ -1,0 +1,50 @@
+input,
+select,
+textarea {
+  border: 1px solid $greyMed;
+  @include rounded;
+  @include font();
+  padding: 10px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  resize: vertical;
+  width: 100%;
+  margin: 10px;
+  margin-right: 0;
+  background-color: $transparentColor;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &.dark {
+    background-color: $blackest;
+    color: $white;
+  }
+  &.light {
+    background-color: $white;
+    color: $black;
+  }
+
+  &.half {
+    width: 50%;
+    flex: 1;
+  }
+  &.half-rounded {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.third {
+    width: 100% / 3;
+  }
+
+  &.quarter {
+    width: 25%;
+  }
+}
+
+input[type=range] {
+  padding: 0;
+}

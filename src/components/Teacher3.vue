@@ -46,7 +46,7 @@ export default {
   position: relative;
   &__item {
     @include background;
-    background-image: url("~@/assets/teacher.jpg");
+    // background-image: url("~@/assets/teacher.jpg");
     height: 500px;
     display: flex;
     flex-direction: column;
