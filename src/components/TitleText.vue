@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "Teacher",
+  name: "Title-text",
   props: {
     lang: String,
     title: String,

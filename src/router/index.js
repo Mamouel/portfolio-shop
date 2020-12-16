@@ -1,9 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Products from "../views/Products.vue";
-import Product from "@/components/ProductSumary.vue";
-import Teacher from "@/components/Teacher.vue";
 
 
 
@@ -18,29 +15,29 @@ const routes = [
   },
   {
     path: "/men/",
-    component: Products,
+    component: Home,
     children: [
       {
         path: "bags",
-        component: Product,
+        component: Home,
       },
       {
         path: "shoes",
-        component: Teacher,
+        component: Home,
       },
     ],
   },
   {
     path: "/women",
-    component: Products,
+    component: Home,
     children: [
       {
         path: "handbags",
-        component: Product,
+        component: Home,
       },
       {
         path: "shoes",
-        component: Teacher,
+        component: Home,
       },
     ],
   },

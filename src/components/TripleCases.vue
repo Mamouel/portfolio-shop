@@ -26,22 +26,13 @@
 
 <script>
 export default {
-  name: "Teacher",
+  name: "triple-cases",
   props: {
     lang: String,
   },
   data() {
     return {
-      text: {
-        teacher: {
-          en: [],
-          fr: [],
-        },
-        aisi: {
-          en: [],
-          fr: [],
-        },
-      },
+
     };
   },
 };

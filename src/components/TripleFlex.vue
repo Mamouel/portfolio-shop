@@ -20,7 +20,7 @@ import secondItemImage from "@/assets/model-2911332_640.jpg";
 import thirdItemImage from "@/assets/woman-4805847_640.jpg";
 
 export default {
-  name: "Teacher",
+  name: "triple-flex",
   props: {
     lang: String,
   },

@@ -1,12 +1,10 @@
 <template>
   <div class="navbar" :class="bodyScroll ? 'navbar_scrolled' : ''">
-    <div
-      class="navbar__ctn navbar__ctn_infos wrapper"
-    >
-      <p class="navbar__ctn_toplink">pays</p>
-      <p class="navbar__ctn_toplink">téléphone</p>
-      <p class="navbar__ctn_toplink">points de vente</p>
-      <p class="navbar__ctn_toplink">besoin d'aide?</p>
+    <div class="navbar__ctn navbar__ctn_infos wrapper">
+      <p class="navbar__ctn_toplink">country</p>
+      <p class="navbar__ctn_toplink">phone</p>
+      <p class="navbar__ctn_toplink">shops</p>
+      <p class="navbar__ctn_toplink">help?</p>
     </div>
     <div class="navbar__ctn wrapper">
       <h2 id="logo" class="navbar__ctn_logo" @click="handleMenu(true, 0)">
@@ -50,7 +48,10 @@
         </p>
       </div>
       <transition name="fade">
-        <div v-if="getMenuSelected === index" class="menu__pannel menu__pannel_subpannel">
+        <div
+          v-if="getMenuSelected === index"
+          class="menu__pannel menu__pannel_subpannel"
+        >
           <p class="mobile" @click="subPanelSelected = ''">back</p>
           <router-link
             class="menu__pannel_link"
@@ -160,26 +161,32 @@ export default {
   @include transition(background-color 0.1s ease);
   border-bottom: 1px solid $greyLight;
   @include mq(s) {
-    // height: $navbarHeightMobile;
+    height: unset;
   }
   &__ctn {
     display: flex;
     align-items: center;
     width: 100%;
+    @include mq(s) {
+      flex-direction: column;
+    }
     &_infos {
       background-color: $greyLight;
       // height: 40px;
       margin: 0;
       padding-top: 10px;
       padding-bottom: 10px;
+      @include mq(s) {
+        flex-direction: row;
+      }
     }
     &_toplink {
       padding: 0 20px;
       margin-left: -20px;
       cursor: pointer;
-      &:last-child {
-        margin-left: auto;
-      }
+      // &:last-child {
+      //   margin-left: auto;
+      // }
     }
     &_logo {
       @include font(25px, bold, 25px);
@@ -193,13 +200,11 @@ export default {
       justify-content: left;
       align-items: center;
       width: 100%;
-      // @include mq(xs) {
-      //   position: absolute;
-      //   top: -100vh;
-      //   left: 0;
-      //   width: 100%;
-      //   height: 100vh;
-      // }
+      @include mq(s) {
+              justify-content: center;
+              flex-wrap: wrap;
+
+      }
     }
   }
 
@@ -231,8 +236,13 @@ export default {
   @include mq(m) {
     flex-wrap: wrap;
   }
+  @include mq(s) {
+    top: 119px;
+  }
   @include mq(xs) {
     width: 200%;
+    top: 176px;
+
   }
   &.sub {
     @include mq(xs) {
@@ -281,11 +291,9 @@ export default {
         position: absolute;
         bottom: 0;
         left: 0;
-        min-height: 400px;
+        min-height: 300px;
         background-size: cover;
         background-position: top;
-
-
       }
     }
     @include mq(xs) {
@@ -298,6 +306,7 @@ export default {
     right: 0px;
     padding: 25px;
     background-color: $white;
+    cursor: pointer;
   }
 }
 .fade-enter-active,
