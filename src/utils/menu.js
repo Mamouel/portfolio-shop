@@ -1,6 +1,6 @@
 /* eslint-disable */
 import NewsMenuImg from "@/assets/handbags-2251092_640.jpg";
-import WomenMenuImg from "@/assets/pexels-dziana-hasanbekava-5480693.jpg";
+import WomenMenuImg from "@/assets/portrait-3291977_640.jpg";
 import MenMenuImg from "@/assets/people-2590813_640.jpg";
 
 const menus = [
