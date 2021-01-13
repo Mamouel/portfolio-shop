@@ -106,15 +106,15 @@ export default {
             panelContent: [
               {
                 icon: "",
-                social: "test",
+                social: "Lorem ipsum",
               },
               {
                 icon: "",
-                social: "test",
+                social: "Lorem ipsum",
               },
               {
                 icon: "",
-                social: "test",
+                social: "Lorem ipsum",
               },
             ],
           },
@@ -157,6 +157,10 @@ export default {
         visibility 0.3s ease,
         opacity 0.3s ease
       );
+      @include mq(xxs) {
+        flex-direction: column;
+        bottom: 200px;
+      }
       &.visible {
         height: 250px;
         visibility: visible;

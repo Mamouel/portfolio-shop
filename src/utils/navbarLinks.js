@@ -22,7 +22,7 @@ const links = [
   {
     en: "Skincare",
     fr: "Soin",
-    sub: "women",
+    sub: "skincareWomen",
   },
 ];
 

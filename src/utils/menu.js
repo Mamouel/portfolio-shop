@@ -2,6 +2,9 @@
 import NewsMenuImg from "@/assets/handbags-2251092_640.jpg";
 import WomenMenuImg from "@/assets/portrait-3291977_640.jpg";
 import MenMenuImg from "@/assets/people-2590813_640.jpg";
+import FragranceMenuImg from "@/assets/woman-3054410_640.jpg";
+import SkinMenuImg from "@/assets/model-1963257_640.jpg";
+
 
 const menus = [
   {
@@ -100,9 +103,9 @@ const menus = [
           to: "women/handbags",
         },
         {
-          en: "Pouches",
-          fr: "Pochettes",
-          to: "women/handbags/pouches",
+          en: "Sneakers",
+          fr: "Sneakers",
+          to: "women/handbags/sneakers",
         },
         {
           en: "What's new",
@@ -149,9 +152,9 @@ const menus = [
           to: "men/shoes",
         },
         {
-          en: "Pouches",
-          fr: "Pochettes",
-          to: "men/shoes/pouches",
+          en: "Sneakers",
+          fr: "Sneakers",
+          to: "men/shoes/sneakers",
         },
         {
           en: "What's new",
@@ -163,7 +166,7 @@ const menus = [
   },
   {
     name: "Fragrance",
-    img: WomenMenuImg,
+    img: FragranceMenuImg,
     firstPanel: {
       links: [
         {
@@ -211,6 +214,60 @@ const menus = [
           en: "What's new",
           fr: "Dernières nouveautés",
           to: "men/fragrance/news",
+        },
+      ],
+    },
+  },
+  {
+    name: "Skincare",
+    img: SkinMenuImg,
+    firstPanel: {
+      links: [
+        {
+          en: "Women",
+          fr: "Femme",
+          id: "skincareWomen",
+        },
+        {
+          en: "Men",
+          fr: "Homme",
+          id: "skincareMen",
+        },
+      ],
+    },
+    secondPanel: {
+      skincareWomen: [
+        {
+          en: "All skincare",
+          fr: "Tous les soins",
+          to: "women/skincare",
+        },
+        {
+          en: "Selection",
+          fr: "Sélection",
+          to: "women/skincare/selection",
+        },
+        {
+          en: "What's new",
+          fr: "Dernières nouveautés",
+          to: "women/skincare/news",
+        },
+      ],
+      skincareMen: [
+        {
+          en: "All skincare",
+          fr: "Tous les soins",
+          to: "men/skincare",
+        },
+        {
+          en: "Selection",
+          fr: "Sélection",
+          to: "men/skincare/selection",
+        },
+        {
+          en: "What's new",
+          fr: "Dernières nouveautés",
+          to: "men/skincare/news",
         },
       ],
     },

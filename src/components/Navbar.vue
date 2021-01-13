@@ -272,6 +272,11 @@ export default {
     &_subpannel {
       background-color: $greyLight;
     }
+    .mobile {
+      cursor: pointer;
+      margin-bottom: 25px;
+      padding: 10px;
+    }
     &_link {
       font-family: $heading-font;
       @include font(16px, normal, 20px);
