@@ -1,4 +1,4 @@
-# ride-and-smile
+# Nice Shop
 
 ## Project setup
 ```
